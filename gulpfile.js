@@ -2,6 +2,8 @@ const gulp = require('gulp')
 const resizer = require('gulp-images-resizer')
 const less = require('gulp-less')
 const path = require('path')
+const cleanCSS = require('gulp-clean-css')
+const rename = require('gulp-rename')
 
 function thumbnails () {
   return gulp.src([
@@ -16,7 +18,7 @@ function thumbnails () {
     .pipe(gulp.dest('img/thumbnail/'))
 }
 
-function styles () {
+function transpileLESS () {
   return gulp.src('./less/**/*.less')
     .pipe(less({
       paths: [path.join(__dirname, 'less', 'includes')]
@@ -24,8 +26,21 @@ function styles () {
     .pipe(gulp.dest('./css'))
 }
 
+function minifyCSS () {
+  return gulp.src('css/main.css')
+    .pipe(cleanCSS())
+    .pipe(rename('main.min.css'))
+    .pipe(gulp.dest('css'))
+}
+
+function styles () {
+  return gulp.series([transpileLESS, minifyCSS])
+}
+
 exports.thumbnails = thumbnails
+exports.minifyCSS = minifyCSS
+exports.transpileLESS = transpileLESS
 exports.styles = styles
 exports.default = function () {
-  gulp.watch('./less/**/*.less', styles)
+  gulp.watch('./less/**/*.less', transpileLESS)
 }

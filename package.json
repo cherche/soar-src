@@ -19,8 +19,10 @@
   "homepage": "https://github.com/cherche/SOAR#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
     "gulp-images-resizer": "^0.0.8",
     "gulp-less": "^4.0.1",
+    "gulp-rename": "^2.0.0",
     "path": "^0.12.7"
   }
 }
