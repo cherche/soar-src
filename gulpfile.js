@@ -6,26 +6,25 @@ const cleanCSS = require('gulp-clean-css')
 const rename = require('gulp-rename')
 const gulpPug = require('gulp-pug')
 
-gulp.task('build-thumbnails', function () {
+gulp.task('dev-thumbnails', function () {
   return gulp.src([
-      'img/**/*.jpg',
-      '!img/exec/**/*.jpg',
-      '!img/thumbnail/**/*.jpg'
+      'assets/img/**/*.jpg',
+      '!assets/img/exec/**/*.jpg'
     ])
     .pipe(resizer({
       format: 'jpg',
       width: 300
     }))
-    .pipe(gulp.dest('img/thumbnail/'))
+    .pipe(gulp.dest('dev/img/thumbnail/'))
 })
 
-function less () {
-  return gulp.src('./less/**/*.less')
+gulp.task('dev-less', function () {
+  return gulp.src('./src/less/**/*.less')
     .pipe(gulpLess({
       paths: [path.join(__dirname, 'less', 'includes')]
     }))
-    .pipe(gulp.dest('./css'))
-}
+    .pipe(gulp.dest('./dev/css'))
+})
 
 gulp.task('build-css', function () {
   return gulp.src('css/main.css')
@@ -38,17 +37,17 @@ function styles () {
   return gulp.series(['less', 'build-css'])
 }
 
-function pug () {
-  return gulp.src('views/*.pug')
+gulp.task('dev-pug', function () {
+  return gulp.src('src/views/*.pug')
     .pipe(gulpPug({
       doctype: 'html',
       pretty: true
     }))
-    .pipe(gulp.dest('.'))
-}
+    .pipe(gulp.dest('./dev'))
+})
 
 exports.styles = styles
-exports.dev = function () {
-  gulp.watch('./less/**/*.less', less)
-  gulp.watch('./views/**/*.pug', pug)
-}
+gulp.task('dev', function () {
+  gulp.watch('./src/less/**/*.less', gulp.series('dev-less'))
+  gulp.watch('./src/views/**/*.pug', gulp.series('dev-pug'))
+})

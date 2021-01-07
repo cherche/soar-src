@@ -1,0 +1,24 @@
+//- eeee there must be a way to refactor this
+mixin navItem(page, active)
+  if page === active
+    a(class="nav-item nav-link ml-4 active" href="#") #{page}
+      span(class="sr-only") (current)
+  else
+    a(class="nav-item nav-link ml-4" href=`${page.toLowerCase()}.html`) #{page}
+
+mixin nav(active)
+  nav(class="main-nav navbar sticky-top navbar-expand-md bg-dark navbar-dark")
+    if active === "Home"
+      a(class="navbar-brand ml-4" href="#") SOAR
+    else
+      a(class="navbar-brand ml-4" href=".") SOAR
+    button(class="navbar-toggler" data-toggle="collapse" data-target="#mainNav" aria-controls="#mainNav" aria-expanded="false" aria-label="Toggle navigation")
+      span(class="navbar-toggler-icon")
+    div(class="collapse navbar-collapse" id="mainNav")
+      div(class="navbar-nav ml-auto mt-2 mt-lg-0")
+        each page in ["Team", "Gallery", "Sponsors", "FAQ", "Contact"]
+          +navItem(page, active)
+        if active === "Apply"
+          a(class="btn btn-outline-light nav-item ml-4 mr-4 active" href="#") Apply
+        else
+          a(class="btn btn-outline-light nav-item ml-4 mr-4" href="apply.html") Apply

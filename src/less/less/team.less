@@ -1,0 +1,54 @@
+.team {
+  text-align: center;
+}
+
+.team-intro h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* We have a weird obsession with tradition, so I must separate each team member
+by their role (even if it takes an inordinate amount of space). Whatever.
+Anyway, when we do this it looks nicer when everyone is centered */
+.team .row {
+  justify-content: center; /* So happy we don't need !important here :D */
+}
+
+.team .name {
+  text-transform: uppercase;
+}
+
+.team .role {
+  display: none;
+}
+
+.team h1.portfolio-name {
+  overflow: hidden;
+}
+
+.team span.portfolio-decoration {
+  position: relative;
+  display: inline-block;
+
+  &::before, &::after {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 5px;
+    top: 50%;
+    transform: translateY(-5px);
+    position: absolute;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+
+  &::before {
+    right: 100%;
+    margin-right: 20px;
+  }
+
+  &::after {
+    left: 100%;
+    margin-left: 20px;
+  }
+}
