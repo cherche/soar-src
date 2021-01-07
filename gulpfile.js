@@ -9,7 +9,8 @@ const gulpPug = require('gulp-pug')
 gulp.task('dev-thumbnails', function () {
   return gulp.src([
       'assets/img/**/*.jpg',
-      '!assets/img/exec/**/*.jpg'
+      '!assets/img/exec/**/*.jpg',
+      '!assets.img/thumbnail/**/*.jpg'
     ])
     .pipe(resizer({
       format: 'jpg',
