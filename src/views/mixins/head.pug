@@ -1,0 +1,7 @@
+mixin head(page)
+  head
+    include ../includes/preamble.pug
+    // Bootstrap CSS
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+    title SOAR | #{page}
+    include ../includes/styles.pug

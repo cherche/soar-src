@@ -1,0 +1,11 @@
+mixin prefooter(page)
+  .row.prefooter
+    .col-md
+      h3 Questions? Contact Us
+      ul
+        li: a(href="mailto:soar.chairs@gmail.com") soar.chairs@gmail.com
+        li: a(href="contact.html") Additional Contact Info
+    .col-md
+      h3 Important Links
+      include importantLinks.pug
+      +importantLinks(page)
