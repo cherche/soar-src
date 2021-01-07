@@ -19,7 +19,6 @@
   "homepage": "https://github.com/cherche/SOAR#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-debug": "^4.0.0",
     "gulp-images-resizer": "^0.0.8"
   }
 }
