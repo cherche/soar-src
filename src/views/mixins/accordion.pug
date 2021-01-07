@@ -1,0 +1,25 @@
+mixin accordionCard(header, body, id, shown)
+  .card
+    a(
+      class=("card-link" + (shown ? "" : " collapsed"))
+      data-toggle="collapse"
+      href=`#${id}`
+      role="button"
+      aria-expanded=shown.toString()
+      aria-controls=id
+    )
+      //- Basically, we want to not-escape the input since I might use a
+      //- <strong> or <em> or something
+      .card-header!= header
+
+    div(class=("collapse" + (shown ? " show" : "")) id=id)
+      //- And same idea here. Unescaped gang >:)
+      //- Protection is for losers
+      .card-body: p!= body
+
+mixin accordion(name, trips)
+  .accordion
+    each trip, i in trips
+      - var [header, body] = trip
+      - var shown = trip[2] | false
+      +accordionCard(header, body, `${name}-${i}`, shown)

@@ -1,0 +1,111 @@
+doctype html
+- var page = 'FAQ'
+-
+  var gFaqs = [
+    [
+      'When will the conference happen?',
+      'This year, SOAR will be taking place on <strong>May 29th, 2021</strong>. Times and schedules will be provided closer to the date of the conference for accepted delegates and volunteers.',
+      true
+    ],
+    [
+      'Where will the conference be taking place?',
+      'Due to COVID-19 restrictions, SOAR will be held virtually. We will reveal the specific digital platform to accepted attendees closer to the date of the conference.'
+    ],
+    [
+      'How does a virtual conference work?',
+      'The communication and interactions between attendees will all occur virtually. There will be designated areas created where delegates will have the opportunity to connect with their Leadership Developers and also communicate with sponsors and executive members. We will provide all the necessary information regarding what platforms to use closer to the conference date.'
+    ],
+    [
+      "What if my question isn't listed?",
+      'If you have any other questions or concerns, please email us at <a href="mailto:soar.chairs@gmail.com">soar.chairs@gmail.com</a>. We will be happy to assist you and our chairs will get back to you as soon as possible!'
+    ]
+  ]
+  var dFaqs = [
+    [
+      'Who can participate?',
+      '<strong>Grade 7 and 8 students in the Peel Region</strong> are welcome to apply as a delegate.',
+      true
+    ],
+    [
+      'When can I apply?',
+      '<a href="apply.html">Delegate applications</a> will open in the month of April, but this is subject to change.',
+      true
+    ],
+    [
+      'Is there an interview process?',
+      'There is no interview process to become a delegate&mdash;just one short written application!'
+    ]
+  ]
+  var pFaqs = [
+    [
+      "Who do I contact if I'm interested in sponsoring?",
+      'Please email <a href="mailto:soar.chairs@gmail.com">soar.chairs@gmail.com</a> if you are interested in contributing to the success of this conference!'
+    ],
+    [
+      'What can I gain from a sponsorship?',
+      'At SOAR, sponsorship is a partnership. The PDF on the <a href="sponsors.html">Sponsors</a> page offers a starting point for compensation. However, we are glad to work with you to meet your needs.'
+    ],
+    [
+      'Can I sponsor this event in any other mediums rather than financially?',
+      'Yes! You can be an in-kind sponsor or even just provide a monetary or goods donation. Your goods can have your company logo printed on it as a way to promote your business to hundreds of students!'
+    ]
+  ]
+  var vFaqs = [
+    [
+      'What volunteer opportunities are available?',
+      "This year we only have Leadership Developer (LD) positions available. In the past, we have also had Security and CCOM positions available, but these roles are not needed for this year's virtual SOAR."
+    ],
+    [
+      'What is an LD?',
+      'A fair question! LD stands for <b>L</b>eadership <b>D</b>eveloper. Those who volunteer to be Leadership Developers serve as mentors during the SOAR conference.'
+    ],
+    [
+      'Who can be an LD?',
+      'Grade 10, 11, and 12 students across the Peel Region can apply to be a Leadership Developer. If you are in Grade 9, do not worry as there will be opportunities for you in the future.'
+    ],
+    [
+      "What if I've never attended SOAR before?",
+      "That's alright! This will not affect your chances in getting accepted as a Leadership Developer."
+    ],
+    [
+      'Woah! When do I apply?',
+      '<a href="apply.html">LD applications</a> will open in early March, but this is subject to change.'
+    ],
+    [
+      'Is there an interview process?',
+      'Yes, applicants that are successful in the written application stage will be contacted to move onto the interview stage.'
+    ]
+  ]
+
+html(lang="en")
+  include mixins/head.pug
+  +head(page)
+
+  body
+    include mixins/nav.pug
+    +nav(page)
+
+    include mixins/accordion.pug
+    main(class=`${page.toLowerCase()} container`)
+      h1 Frequently Asked Questions
+      .row
+        .col-sm
+          h2 General
+          +accordion("general", gFaqs)
+        .col-sm
+          h2 Delegates
+          +accordion("delegates", dFaqs)
+      .row
+        .col-sm
+          h2 Partnership
+          +accordion("partnership", pFaqs)
+        .col-sm
+          h2 Volunteers
+          +accordion("volunteers", vFaqs)
+      include mixins/prefooter.pug
+      +prefooter(page)
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
+    
+    script(src="js/main.js")
