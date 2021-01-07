@@ -8,7 +8,7 @@ html(lang="en")
     include mixins/nav.pug
     +nav(page)
 
-    main(class="contact container")
+    main(class="apply container")
       .row
         .col-lg-8.mx-auto
           .card: .card-body
@@ -18,8 +18,17 @@ html(lang="en")
               a(href="#" class="btn btn-primary disabled") Apply to be an LD
         .col-sm
           div(class="card border-info mb-3"): div(class="card-body text-info")
-            p(class="card-text") Want to be a delegate? Delegate applications are not available right now, but keep an eye out! Applications will release in April.</p>
+            p(class="card-text") Want to be a delegate? Delegate applications are not available right now, but keep an eye out! Applications will release in April.
 
     .container
       include mixins/prefooter.pug
       +prefooter(page)
+    
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
+    script.
+      // Popper tooltips require manual activation since opt-in
+      $('.tooltip-wrapper').tooltip()
+
+    script(src="js/main.js")
