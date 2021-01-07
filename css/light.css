@@ -1,0 +1,115 @@
+.main-nav,
+.home-nav.active {
+  /* Needs !important to override Bootstrap */
+  background-color: #343a40 !important;
+}
+
+.home-nav {
+  /* Needs !important to override the above !important */
+  background-color: transparent !important;
+}
+
+body,
+.card {
+  color: ;
+  background-color: #fff;
+}
+
+.card,
+.card-header {
+  border-color: ;
+}
+
+.card-header,
+.jumbotron {
+  background-color: ;
+}
+
+.story-container {
+  background-color: #eee;
+}
+
+.story .quote {
+  color: #106cff;
+}
+
+/* Don't change this please. Pretty please */
+@media screen and (max-width: 728px) {
+  .story .quote {
+    color: inherit;
+  }
+}
+
+.story-control,
+.story-control a {
+  color: #666;
+}
+
+.story-control a:hover {
+  color: #777;
+}
+
+.card-header,
+.jumbotron {
+  background-color: ;
+}
+
+iframe.soar-video {
+  border-color: ;
+}
+
+a {
+  color: #106cff;
+}
+
+a:hover {
+  color: ;
+}
+
+.btn-primary {
+  color: ;
+  /* Should be the same */
+  border-color: ;
+  background-color: ;
+}
+
+.btn-primary:hover, .btn-primary.disabled {
+  color: ;
+  /* Should be the same */
+  /* Lighter/darker version of unhovered colour */
+  border-color: ;
+  background-color: ;
+}
+
+.btn-secondary {
+  color: ;
+  /* Should be the same */
+  border-color: ;
+  background-color: ;
+}
+
+.btn-secondary:hover {
+  color: ;
+  /* Should be the same */
+  /* Lighter/darker version of unhovered colour */
+  border-color: ;
+  background-color: ;
+}
+
+.text-info {
+  color: !important;
+}
+
+.border-info {
+  border-color: !important;
+}
+
+/* All the below should be the same */
+.tooltip-inner {
+  color: ;
+  background-color: ;
+}
+
+.tooltip.bs-tooltip-bottom .arrow:before {
+  border-bottom-color: !important;
+}

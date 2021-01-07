@@ -1,0 +1,9 @@
+/* https://epicbootstrap.com/snippets/lightbox-gallery */
+
+.photo-gallery .item {
+  margin-bottom: 30px;
+}
+
+.photo-gallery .item a {
+  cursor: zoom-in;
+}
