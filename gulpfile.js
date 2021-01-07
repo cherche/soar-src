@@ -1,9 +1,8 @@
 const gulp = require('gulp')
 const resizer = require('gulp-images-resizer');
 
-gulp.task('thumbnails', function () {
-  return gulp
-    .src([
+function thumbnails () {
+  return gulp.src([
       'img/**/*.jpg',
       '!img/exec/**/*.jpg',
       '!img/thumbnail/**/*.jpg'
@@ -13,4 +12,6 @@ gulp.task('thumbnails', function () {
       width: 300
     }))
     .pipe(gulp.dest('img/thumbnail/'))
-})
+}
+
+exports.thumbnails = thumbnails
