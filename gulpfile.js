@@ -26,3 +26,6 @@ function styles () {
 
 exports.thumbnails = thumbnails
 exports.styles = styles
+exports.default = function () {
+  gulp.watch('./less/**/*.less', styles)
+}
