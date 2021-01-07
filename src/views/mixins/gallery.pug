@@ -1,0 +1,26 @@
+mixin galleryItem(set, path)
+  .col-sm-6.col-md-4.col-lg-3.item
+    a(href=`img/${path}` data-lightbox=set)
+      img(class="img-fluid" src=`img/thumbnail/${path}`)
+
+mixin galleryRow(set, paths)
+  .row.photos
+    each path in paths
+      +galleryItem(set, path)
+
+mixin gallery(set, paths)
+  div(id=set class="photo-gallery")
+    +galleryRow(set, paths)
+
+mixin galleryCollapsible(name, set, paths, expanded=false)
+  h3
+    a(
+      data-toggle="collapse"
+      class=(expanded ? "" : "collapsed")
+      href=`#${set}`
+      role="button"
+      aria-expanded=expanded.toString()
+      aria-controls=set
+    )= name
+  div(id=set class=("photo-gallery collapse" + (expanded ? " show" : "")))
+    +galleryRow(set, paths)

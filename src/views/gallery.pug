@@ -1,0 +1,107 @@
+doctype html
+- var page = 'Gallery'
+
+html(lang="en")
+  include mixins/head.pug
+  +head(page)
+
+  body
+    include mixins/nav.pug
+    +nav(page)
+
+    main(class="gallery container")
+      h1(class="text-center display-4") Gallery
+
+      h2 SOAR 2019
+      include mixins/gallery.pug
+      +galleryCollapsible("Photos", "gallery-2019", [
+        "2019/DSC_0090.jpg",
+        "2019/DSC_0094.jpg",
+        "2019/DSC_0206.jpg",
+        "2019/DSC_0282.jpg",
+        "2019/DSC_0283.jpg",
+        "2019/DSC_0478.jpg",
+        "2019/DSC_0521.jpg",
+        "2019/DSC_0542.jpg",
+        "2019/DSC_0582.jpg",
+        "2019/DSC_0590.jpg",
+        "2019/DSC_0620.jpg",
+        "2019/DSC_1794.jpg",
+        "2019/IMG_0829.jpg",
+        "2019/IMG_0830.jpg",
+        "2019/IMG_0897.jpg",
+        "2019/IMG_0995.jpg",
+        "2019/IMG_0998.jpg",
+        "2019/IMG_1002.jpg",
+        "2019/IMG_1009.jpg",
+        "2019/IMG_1016.jpg",
+        "2019/IMG_1212.jpg",
+        "2019/IMG_1213.jpg",
+        "2019/IMG_1222.jpg",
+        "2019/IMG_5876.jpg",
+        "2019/IMG_6018.jpg",
+        "2019/IMG_6023.jpg",
+        "2019/IMG_6061.jpg",
+        "2019/IMG_6153.jpg",
+        "2019/IMG_6155.jpg",
+        "2019/IMG_6220.jpg",
+        "2019/IMG_6221.jpg",
+        "2019/IMG_6225.jpg",
+        "2019/IMG_6318.jpg",
+        "2019/IMG_6326.jpg",
+        "2019/IMG_6357.jpg",
+        "2019/IMG_6390.jpg",
+        "2019/soar111.jpg",
+        "2019/soar195.jpg",
+        "2019/soar540.jpg",
+        "2019/soar580.jpg",
+        "2019/soar581.jpg",
+        "2019/soar592.jpg",
+        "2019/soar631.jpg"
+      ], true)
+
+      h2 SOAR 2018
+      +galleryCollapsible("Photos", "gallery-2018", [
+        "2018/DB3E89ED-5FDF-48FB-9618-AB2E88F37ED8_1_201_a.jpg",
+        "2018/DSC07306.jpg",
+        "2018/DSC07503.jpg",
+        "2018/DSC07566.jpg",
+        "2018/DSC07940.jpg",
+        "2018/DSC08310.jpg",
+        "2018/IMG_188.jpg",
+        "2018/IMG_2135.jpg",
+        "2018/IMG_2230.jpg",
+        "2018/IMG_2261.jpg",
+        "2018/IMG_2507.jpg",
+        "2018/IMG_2556-1.jpg",
+        "2018/IMG_2556-2.jpg",
+        "2018/IMG_2556.jpg",
+        "2018/IMG_2754.jpg",
+        "2018/IMG_3378.jpg"
+      ])
+
+      <h2>SOAR 2017</h2>
+      +galleryCollapsible("Photos", "gallery-2017", [
+        "2017/1.jpg",
+        "2017/2.jpg",
+        "2017/3.jpg",
+        "2017/4.jpg",
+        "2017/5.jpg",
+        "2017/6.jpg",
+        "2017/7.jpg",
+        "2017/8.jpg",
+        "2017/9.jpg",
+        "2017/10.jpg"
+      ])
+
+      include includes/jumbotron.pug
+
+  .container
+    include mixins/prefooter.pug
+    +prefooter(page)
+
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous")
+  
+  script(src="js/main.js")
