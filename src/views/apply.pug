@@ -8,7 +8,7 @@ html(lang="en")
     include mixins/nav.pug
     +nav(page)
 
-    main(class="apply container")
+    main(class=`${page.toLowerCase()} container`)
       .row
         .col-lg-8.mx-auto
           .card: .card-body
