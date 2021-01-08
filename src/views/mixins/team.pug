@@ -1,0 +1,54 @@
+-
+  var ROLE_LOOKUP = {
+    cd: {
+      long: 'Creative Director',
+      plural: 'Creative Directors'
+    },
+    chair: {
+      long: 'Chair',
+      plural: 'Chairs'
+    },
+    dev: {
+      long: 'Developer',
+      plural: 'Developers'
+    },
+    jr: {
+      long: 'Junior Representative',
+      plural: 'Junior Representatives'
+    },
+    mld: {
+      long: 'Minister of LD',
+      plural: 'Ministers of LD'
+    },
+    promo: {
+      long: 'Head of Promotions',
+      plural: 'Heads of Promotions'
+    },
+    spons: {
+      long: 'Head of Sponsorship',
+      plural: 'Heads of Sponsorship'
+    }
+  }
+
+mixin portfolioCard(role, member)
+  - var { name, socials } = member
+  - var roleLong = ROLE_LOOKUP[role].long
+  - var rolePlural = ROLE_LOOKUP[role].plural
+  - var imgName = name.toLowerCase().split(' ').join('_') + '.jpg'
+  - var imgPath = `img/exec/${role}/${imgName}`
+  .card
+    img(src=imgPath class="card-img-top" alt=`${name}, ${roleLong}`)
+    .card-body
+      h5.name= name
+      h6.role= roleLong
+      p.social
+        a(href=`https://www.instagram.com/${socials.instagram}/`) <i class="bi bi-instagram"></i>
+        a(href=`mailto:${socials.email}`) <i class="bi bi-envelope"></i>
+
+mixin portfolio(role, members)
+  h1(class="portfolio-name display-4 mb-2")
+    span(class="portfolio-decoration")= ROLE_LOOKUP[role].plural
+  div(class=`portfolio mb-4 ${role}`): .row
+    each member in members
+      .col-6.col-md-4.col-lg-3
+        +portfolioCard(role, member)
