@@ -1,0 +1,29 @@
+mixin storyBody({ name, role, message })
+  p.message
+    span(class="quote quote-left")!= "&ldquo;"
+    != message
+    span(class="quote quote-right")!= "&rdquo;"
+  p.speaker
+    span.dash!= "&mdash;"
+    span.name!= name
+    // For whatever reason, Pug really hates it if we don't make it a string
+    span.comma= ", "
+    span.role!= role
+
+mixin stories(storyArr, interval)
+  div(class="stories" data-interval=interval)
+    div.story-control
+      span.page-indicator
+        span.page-active ?
+        ="/"
+        span.page-total ?
+      a(class="story-control-prev" href="#" role="button")
+        i(class="bi bi-caret-left-fill" aria-hidden="true")
+        span(class="sr-only") Previous
+      a(class="story-control-next" href="#" role="button")
+        i(class="bi bi-caret-right-fill" aria-hidden="true")
+        span(class="sr-only") Next
+
+    each story, index in storyArr
+      div(class=("story" + ((index === 0) ? " active" : "")))
+        +storyBody(story)

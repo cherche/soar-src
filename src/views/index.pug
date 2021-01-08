@@ -1,222 +1,103 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+doctype html
+- var page = "Home"
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="bootstrap-icons.css">
-  <link rel="stylesheet" href="css/gallery.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/stories.css">
-  <link rel="stylesheet" href="css/theming.css">
+html(lang="en")
+  include mixins/head.pug
+  +head(page)
 
-  <title>SOAR Conference</title>
-</head>
-<body class="home">
-  <nav class="home-nav main-nav navbar fixed-top navbar-expand-md navbar-dark">
-    <a class="navbar-brand ml-4" href="#">SOAR</a>
-    <button class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-controls="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mainNav">
-      <div class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <a class="nav-item nav-link ml-4" href="team.html">Team</a>
-        <a class="nav-item nav-link ml-4" href="gallery.html">Gallery</a>
-        <a class="nav-item nav-link ml-4" href="sponsors.html">Sponsors</a>
-        <a class="nav-item nav-link ml-4" href="faq.html">FAQ</a>
-        <a class="nav-item nav-link ml-4" href="contact.html">Contact</a>
-        <a class="btn btn-outline-light nav-item ml-4 mr-4" href="apply.html">Apply</a>
-      </div>
-    </div>
-  </nav>
+  body
+    include mixins/nav.pug
+    +nav(page)
 
-  <div class="slideshow-container text-light">
-    <div id="slideshow" class="carousel slide" data-ride="carousel" data-interval="5000">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="img/2017/2.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="img/2017/10.jpg" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="img/2018/DB3E89ED-5FDF-48FB-9618-AB2E88F37ED8_1_201_a.jpg" alt="Third slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="img/2018/DSC07940.jpg" alt="Fourth slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="img/2018/IMG_2507.jpg" alt="Fifth slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="img/2019/IMG_5876.jpg" alt="Sixth slide">
-        </div>
-      </div>
-    </div>
-    <div class="overlay-text hidden-xs">
-      <h1 class="text-center display-1">SOAR 2021</h1>
-      <p class="text-center lead">Inspiring the leaders of tomorrow</p>
-      <div class="text-center">
-        <a class="btn btn-secondary" href="#learn-more">Learn more</a>
-        <a class="btn btn-primary" href="apply.html">Apply for SOAR 2021!</a>
-        <!--<a class="scroll scroll-down" href="#why"><div>Why attend SOAR? ↓</div></a>-->
-      </div>
-    </div>
-  </div>
+    div(class="slideshow-container text-light")
+      div(class="carousel slide" data-ride="carousel" data-interval="5000")
+        div(class="carousel-inner")
+          each path, index in ["2017/2.jpg", "2017/10.jpg", "2018/DB3E89ED-5FDF-48FB-9618-AB2E88F37ED8_1_201_a.jpg", "2018/DSC07940.jpg", "2018/IMG_2507.jpg", "2019/IMG_5876.jpg"]
+            div(class=("carousel-item" + (index == 0 ? " active" : "")))
+              img(class="d-block w-100" src=`img/${path}` alt=`Slide ${index + 1}`)
+      div(class="overlay-text")
+        h1(class="text-center display-1") SOAR 2021
+        p(class="text-center lead") Inspiring the leaders of tomorrow
+        .text-center
+          a(class="btn btn-secondary" href="#learn-more") Learn more
+          a(class="btn btn-primary" href="apply.html") Apply for SOAR 2021!
 
-  <main id="learn-more" class="container">
-    <div class="row align-items-center">
-      <div class="col-lg">
-        <h1>What is SOAR?</h1>
-        <p>The SOAR Conference aims to ease students’ transitions from middle school to high school through various workshops and activities. We equip students with the necessary skills to succeed in high school, developing their collaboration skills and leadership ability and ultimately instilling in them a sense of optimism and confidence about high school.</p>
-      </div>
-      <div class="col-lg text-center">
-        <iframe class="soar-video" src="https://www.youtube.com/embed/VAQCjkfGs7M" allowfullscreen></iframe>
-      </div>
-    </div>
-  </main>
+    main#learn-more(class="container")
+      div(class="row align-items-center")
+        div(class="col-lg")
+          h1 What is SOAR?
+          p The SOAR Conference aims to ease students’ transitions from middle school to high school through various workshops and activities. We equip students with the necessary skills to succeed in high school, developing their collaboration skills and leadership ability and ultimately instilling in them a sense of optimism and confidence about high school.
+        div(class="col-lg text-center")
+          iframe(class="soar-video" src="https://www.youtube.com/embed/VAQCjkfGs7M" allowfullscreen)
 
-  <div class="story-container my-4 py-4">
-    <h1 class="text-center mb-2">Stories</h1>
-    <div class="stories" data-interval="5000">
-      <div class="story-control">
-        <span class="page-indicator"><span class="page-active"></span>/<span class="page-total"></span></span>
-        <a class="story-control-prev" href="#" role="button">
-          <i class="bi bi-caret-left-fill" aria-hidden="true"></i>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="story-control-next" href="#" role="button">
-          <i class="bi bi-caret-right-fill" aria-hidden="true"></i>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+    div.story-container(class="my-4 py-4")
+      h1(class="text-center mb-2") Stories
+      include mixins/stories.pug
+      +stories([
+        {
+          name: "Vaarij Betala",
+          role: "Delegate 2018",
+          message: "As soon as I got there, the volunteers were very eager to help, after that the volunteers were engaging, keeping us engaged with songs and activities. During the mentorship I learned a lot. The LDs walked us through time management, organization and conflict de-escalation. They were always ready to answer any questions we might have. I can say from experience I have learned a lot about high school from SOAR."
+        },
+        {
+          name: "Tanya Puri",
+          role: "Delegate 2018",
+          message: "SOAR 2018 was definitely an unforgettable conference for me because it’s where I met my best friend :)"
+        },
+        {
+          name: "Aayushi Jha",
+          role: "Leadership Developer 2019",
+          message: "[My delegates were] initially timid but by the end of the conference they were all more confident and vibrant. Through my experience, although I was able to impart my wisdom to my delegates, they had taught me a lot as well. During team activities my delegates were inspiring to watch as they took the time to learn more about each other and their strengths before conducting an activity. [&hellip;] I was grateful to be able to be in a position to make an impact on my delegates but I was also to learn more about myself and learn from those around me."
+        },
+        {
+          name: "Aarush Bhradwaj",
+          role: "Delegate 2018",
+          message: "SOAR was an amazing day during which I made many new friends in my group and I had a fantastic experience with all of the different activities. Additionally, all of the LDs and volunteers were very friendly."
+        },
+        {
+          name: "Vyomesh Iyengar",
+          role: "Former Chair 2020",
+          message: "[One] of the most incredible, transformative experiences of my life. [As a 2015 delegate, executive member, and finally Chair] SOAR taught me about leadership through action, growing through my disappointments, and working with those around me. Through SOAR I met some of my closest friends to this day, [and] had some of my most memorable experiences. [&hellip;] While under the impression that I was just having fun, I subconsciously learnt how to develop my thought process and how to work with others. [&hellip;] I would encourage everyone to SOAR into their future!"
+        },
+        {
+          name: "Ankita Goyat",
+          role: "Volunteer 2019",
+          message: "Honestly, SOAR was really fun&mdash;it had its own unique and wholesome vibe that I liked a lot. Seeing the delegates hyped up and really enjoying themselves throughout the conference was sweet [&hellip;] I'd rate my SOAR experience a straight up 10/10 and I can't wait until SOAR 2021!!!"
+        }
+      ], 5000)
 
-      <div class="story active">
-        <p><span class="quote quote-left">&ldquo;</span>As soon as I got there,
-          the volunteers were very eager to help, after that the volunteers were
-          engaging, keeping us engaged with songs and activities. During the
-          mentorship I learned a lot. The LDs walked us through time management,
-          organization and conflict de-escalation. They were always ready to
-          answer any questions we might have. I can say from experience I have
-          learned a lot about high school from SOAR.<span class="quote quote-right">&rdquo;</span></p>
-        <p class="speaker"><span class="dash">&mdash;</span><span class="name">Vaarij Betala</span><span class="comma">,</span>
-          <span class="role">Delegate 2018</span></p>
-      </div>
+    .container
+      h1(class="text-center my-4")
+        a(
+          class="collapser"
+          data-toggle="collapse"
+          href="#gallery-general"
+          role="button"
+          aria-expanded="true"
+          aria-controls="gallery-general"
+        ) Gallery
+      #gallery-general(class="collapse show")
+        include mixins/gallery.pug
+        +gallery("gallery-general", [
+          "2017/3.jpg",
+          "2017/8.jpg",
+          "2018/DSC07503.jpg",
+          "2018/IMG_188.jpg",
+          "2019/DSC_1794.jpg",
+          "2019/IMG_0995.jpg"
+        ], "col-sm-6 col-md-4 col-lg-4")
+        p.text-center
+          a(class="btn btn-secondary" href="gallery.html") See all photos
 
-      <div class="story">
-        <p><span class="quote quote-left">&ldquo;</span>SOAR 2018 was
-          definitely an unforgettable conference for me because it’s where I met
-          my best friend :)<span class="quote quote-right">&rdquo;</span></p>
-        <p class="speaker"><span class="dash">&mdash;</span><span class="name">Tanya Puri</span><span class="comma">,</span>
-          <span class="role">Delegate 2018</span></p>
-      </div>
+      include includes/jumbotron.pug
 
-      <div class="story">
-        <p><span class="quote quote-left">&ldquo;</span>[My delegates were]
-          initially timid but by the end of the conference they were all more
-          confident and vibrant. Through my experience, although I was able to
-          impart my wisdom to my delegates, they had taught me a lot as well.
-          During team activities my delegates were inspiring to watch as they
-          took the time to learn more about each other and their strengths
-          before conducting an activity. [&hellip;] I was grateful to be able to
-          be in a position to make an impact on my delegates but I was also to
-          learn more about myself and learn from those around me.<span class="quote quote-right">&rdquo;</span></p>
-        <p class="speaker"><span class="dash">&mdash;</span><span class="name">Aayushi Jha</span><span class="comma">,</span>
-          <span class="role">Leadership Developer 2019</span></p>
-      </div>
+    .container
+      include mixins/prefooter.pug
+      +prefooter(page)
 
-      <div class="story">
-        <p><span class="quote quote-left">&ldquo;</span>SOAR was an amazing day
-          during which I made many new friends in my group and I had a fantastic
-          experience with all of the different activities. Additionally, all of
-          the LDs and volunteers were very friendly.<span class="quote quote-right">&rdquo;</span></p>
-        <p class="speaker"><span class="dash">&mdash;</span><span class="name">Aarush Bhradwaj</span><span class="comma">,</span>
-          <span class="role">Delegate 2018</span></p>
-      </div>
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous")
 
-      <div class="story">
-        <p><span class="quote quote-left">&ldquo;</span>[One] of the most
-          incredible, transformative experiences of my life. [As a 2015
-          delegate, executive member, and finally Chair] SOAR taught me about
-          leadership through action, growing through my disappointments, and
-          working with those around me. Through SOAR I met some of my closest
-          friends to this day, [and] had some of my most memorable experiences.
-          [&hellip;] While under the impression that I was just having fun, I
-          subconsciously learnt how to develop my thought process and how to
-          work with others. [&hellip;] I would encourage everyone to SOAR
-          into their future!<span class="quote quote-right">&rdquo;</span></p>
-        <p class="speaker"><span class="dash">&mdash;</span><span class="name">Vyomesh Iyengar</span><span class="comma">,</span>
-          <span class="role">Former Chair 2020</span></p>
-      </div>
-
-      <div class="story">
-        <p><span class="quote quote-left">&ldquo;</span>Honestly, SOAR was
-          really fun&mdash;it had its own unique and wholesome vibe that I liked
-          a lot. Seeing the delegates hyped up and really enjoying themselves
-          throughout the conference was sweet [&hellip;] I'd rate my SOAR
-          experience a straight up 10/10 and I can't wait until SOAR 2021!!!<span class="quote quote-right">&rdquo;</span></p>
-        <p class="speaker"><span class="dash">&mdash;</span><span class="name">Ankita Goyat</span><span class="comma">,</span>
-          <span class="role">Volunteer 2019</span></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <h1 class="text-center my-4"><a class="collapser" data-toggle="collapse" href="#gallery-general" role="button" aria-expanded="true" aria-controls="gallery-general">Gallery</a></h1>
-    <div id="gallery-general" class="collapse show">
-      <div class="photo-gallery">
-        <div class="row photos mx-auto text-center"> <!-- Ensure single row of photos will be centered -->
-          <div class="col-sm-6 col-md-4 item"><a href="img/2017/3.jpg" data-lightbox="general-gallery"><img class="img-fluid" src="img/thumbnail/2017/3.jpg"></a></div>
-          <div class="col-sm-6 col-md-4 item"><a href="img/2017/8.jpg" data-lightbox="general-gallery"><img class="img-fluid" src="img/thumbnail/2017/8.jpg"></a></div>
-          <div class="col-sm-6 col-md-4 item"><a href="img/2018/DSC07503.jpg" data-lightbox="general-gallery"><img class="img-fluid" src="img/thumbnail/2018/IMG_2230.jpg"></a></div>
-          <div class="col-sm-6 col-md-4 item"><a href="img/2018/IMG_188.jpg" data-lightbox="general-gallery"><img class="img-fluid" src="img/thumbnail/2018/IMG_188.jpg"></a></div>
-          <div class="col-sm-6 col-md-4 item"><a href="img/2019/DSC_1794.jpg" data-lightbox="general-gallery"><img class="img-fluid" src="img/thumbnail/2019/DSC_1794.jpg"></a></div>
-          <div class="col-sm-6 col-md-4 item"><a href="img/2019/IMG_0995.jpg" data-lightbox="general-gallery"><img class="img-fluid" src="img/thumbnail/2019/IMG_0995.jpg"></a></div>
-        </div>
-      </div>
-      <p class="text-center"><a class="btn btn-secondary" href="gallery.html">See all photos</a></p>
-    </div>
-
-    <div class="jumbotron mt-5">
-      <h1 class="display-4">Ready to SOAR <span class="text-nowrap">with us?</span></h1>
-      <hr class="my-4">
-      <p>Peel students in <strong>Grade 7</strong> and <strong>Grade 8</strong> can participate as delegates. All grown up? Think you have what it takes to be a leader? Any Peel secondary school student (Grade 10 or higher) can apply to be a Leadership Developer (LD).</p>
-      <p class="lead">
-        <a class="btn btn-secondary btn-lg" href="faq.html" role="button">More Info</a>
-        <a class="btn btn-primary btn-lg" href="apply.html" role="button">Apply for SOAR 2021!</a>
-      </p>
-    </div>
-  </main>
-
-  <div class="container">
-    <div class="row prefooter">
-      <div class="col-md">
-        <h3>Questions? Contact Us</h3>
-        <ul>
-          <li><a href="mailto:soar.chairs@gmail.com">soar.chairs@gmail.com</a></li>
-          <li><a href="contact.html">Additional Contact Info</a></li>
-        </ul>
-      </div>
-      <div class="col-md">
-        <h3>Important Links</h3>
-        <ul>
-          <li><a href="faq.html">Frequently Asked Questions (FAQ)</a></li>
-          <li><a href="apply.html">Apply to be a SOAR Delegate</a></li>
-          <li><a href="apply.html">Volunteer to be a SOAR Leadership Developer</a></li>
-          <li><a href="sponsors.html">Sponsor SOAR 2021</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
-  <script src="js/stories.js"></script>
-</body>
-</html>
+    script(src="js/main.js")
+    script(src="js/stories.js")

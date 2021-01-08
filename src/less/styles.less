@@ -22,12 +22,12 @@ main.container {
 }
 
 /* The photos are just way too big, so this limits their size a bit */
-#slideshow .carousel-item {
+.slideshow-container .carousel .carousel-item {
   height: 25rem;
 }
 
 /* For contrast reasons, this is a translucent white overlay */
-#slideshow .carousel-item::after {
+.slideshow-container .carousel .carousel-item::after {
   content: '';
   display: block;
   position: absolute;
@@ -70,7 +70,7 @@ iframe.soar-video {
   margin-bottom: 0.5rem;
 }
 
-.jumbotron .btn ~ .btn {
+.btn ~ .btn {
   margin-left: 0.5rem;
 }
 
