@@ -1,18 +1,18 @@
-mixin galleryItem(set, path)
-  .col-sm-6.col-md-4.col-lg-3.item
+mixin galleryItem(set, path, rw)
+  div(class="item " + (rw || "col-sm-6 col-md-4 col-lg-3"))
     a(href=`img/${path}` data-lightbox=set)
       img(class="img-fluid" src=`img/thumbnail/${path}`)
 
-mixin galleryRow(set, paths)
+mixin galleryRow(set, paths, rw)
   .row.photos
     each path in paths
-      +galleryItem(set, path)
+      +galleryItem(set, path, rw)
 
-mixin gallery(set, paths)
+mixin gallery(set, paths, rw)
   div(id=set class="photo-gallery")
     +galleryRow(set, paths)
 
-mixin galleryCollapsible(name, set, paths, expanded=false)
+mixin galleryCollapsible(name, set, paths, expanded=false, rw)
   h3
     a(
       data-toggle="collapse"
