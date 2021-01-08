@@ -42,8 +42,12 @@ mixin portfolioCard(role, member)
       h5.name= name
       h6.role= roleLong
       p.social
-        a(href=`https://www.instagram.com/${socials.instagram}/`) <i class="bi bi-instagram"></i>
-        a(href=`mailto:${socials.email}`) <i class="bi bi-envelope"></i>
+        if socials.github
+          a(href=`https://www.github.com/${socials.github}/`) <i class="bi bi-github"></i>
+        if socials.instagram
+          a(href=`https://www.instagram.com/${socials.instagram}/`) <i class="bi bi-instagram"></i>
+        if socials.email
+          a(href=`mailto:${socials.email}`) <i class="bi bi-envelope"></i>
 
 mixin portfolio(role, members)
   h1(class="portfolio-name display-4 mb-2")
