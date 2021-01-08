@@ -1,0 +1,14 @@
+extends ../layout.pug
+
+block preamble
+  - var page = 'Home'
+  include ../includes/preamble.pug
+
+block content
+  include ../index.pug
+
+block styles
+  include ../includes/build/styles.pug
+
+block scripts
+  include ../includes/build/scripts.pug

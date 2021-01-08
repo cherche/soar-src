@@ -26,6 +26,6 @@ Temporary Items
 .apdisk
 
 css
-dev
+dev/*
 build/*
 !build/CNAME

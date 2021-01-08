@@ -10,7 +10,7 @@ const rename = require('gulp-rename')
 const minify = require('gulp-minify')
 
 gulp.task('views-dev', function () {
-  return gulp.src('src/views/*.pug')
+  return gulp.src('src/views/dev/*.pug')
     .pipe(gulpPug({
       doctype: 'html'
     }))
@@ -38,7 +38,7 @@ gulp.task('lib-dev', function () {
     .pipe(gulp.dest('dev/'))
 })
 
-gulp.task('assets-dev', function () {
+gulp.task('assets-copy-dev', function () {
   return gulp.src([
     'assets/**/*',
     '!assets.img/thumbnail/**/*.jpg'
@@ -59,14 +59,7 @@ gulp.task('thumbnails-dev', function () {
     .pipe(gulp.dest('dev/img/thumbnail/'))
 })
 
-// One-time gulp task to get the entire dev environment set up
-gulp.task('dev-build', gulp.parallel(
-  'views-dev',
-  'styles-dev',
-  'scripts-dev',
-  'lib-dev',
-  gulp.series('assets-dev', 'thumbnails-dev')
-))
+gulp.task('assets-dev', gulp.series('assets-copy-dev', 'thumbnails-dev'))
 
 // Continuous gulp task to make development easier
 gulp.task('dev-mode', function () {
@@ -80,7 +73,7 @@ gulp.task('default', gulp.series('dev-mode'))
 // START OF BUILD TASKS
 
 gulp.task('views-build', function () {
-  return gulp.src('src/views/*.pug')
+  return gulp.src('src/views/build/*.pug')
     .pipe(gulpPug({
       doctype: 'html'
     }))
@@ -101,6 +94,8 @@ gulp.task('css-build', function () {
     .pipe(rename('main.min.css'))
     .pipe(gulp.dest('build/css'))
 })
+
+gulp.task('styles-build', gulp.series('less-build', 'css-build'))
 
 gulp.task('scripts-build', function () {
   return gulp.src('./src/js/**/*.js')
@@ -134,10 +129,26 @@ gulp.task('thumbnails-build', function () {
     .pipe(gulp.dest('build/img/thumbnail'))
 })
 
-gulp.task('build', gulp.parallel(
+gulp.task('dev-ish', gulp.parallel(
+  'views-dev',
+  'styles-dev',
+  'scripts-dev',
+  'lib-dev'
+))
+
+gulp.task('dev', gulp.parallel(
+  'dev-ish',
+  'assets-dev'
+))
+
+gulp.task('build-ish', gulp.parallel(
   'views-build',
-  gulp.series('less-build', 'css-build'),
+  'styles-build',
   'scripts-build',
-  'lib-build',
+  'lib-build'
+))
+
+gulp.task('build', gulp.parallel(
+  'build-ish',
   gulp.series('assets-build', 'thumbnails-build')
 ))

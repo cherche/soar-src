@@ -1,0 +1,34 @@
+doctype html
+
+html(lang="en")
+  head
+    block preamble
+
+    // Bootstrap CSS
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+    link(rel="stylesheet" href="bootstrap-icons.css")
+    if (page === "Home" || page === "Gallery")
+      // We need Lightbox for the galleries to work, duh!
+      link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css")
+    if (page != "Home")
+      title SOAR | #{page}
+    else
+      title SOAR
+
+    block styles
+  body
+    include mixins/nav.pug
+    +nav(page)
+    block content
+      
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    if (page === "Apply")
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
+    if (page === "Apply")
+      // Popper tooltips require manual activation since opt-in
+      script.
+        $('.tooltip-wrapper').tooltip()
+    if (page === "Home" || page === "Gallery")
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous")
+    block scripts

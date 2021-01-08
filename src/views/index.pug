@@ -1,103 +1,85 @@
-doctype html
-- var page = "Home"
+div(class="slideshow-container text-light")
+  div(class="carousel slide" data-ride="carousel" data-interval="5000")
+    div(class="carousel-inner")
+      each path, index in ["2017/2.jpg", "2017/10.jpg", "2018/DB3E89ED-5FDF-48FB-9618-AB2E88F37ED8_1_201_a.jpg", "2018/DSC07940.jpg", "2018/IMG_2507.jpg", "2019/IMG_5876.jpg"]
+        div(class=("carousel-item" + (index == 0 ? " active" : "")))
+          img(class="d-block w-100" src=`img/${path}` alt=`Slide ${index + 1}`)
+  div(class="overlay-text")
+    h1(class="text-center display-1") SOAR 2021
+    p(class="text-center lead") Inspiring the leaders of tomorrow
+    .text-center
+      a(class="btn btn-secondary" href="#learn-more") Learn more
+      a(class="btn btn-primary" href="apply.html") Apply for SOAR 2021!
 
-html(lang="en")
-  include mixins/head.pug
-  +head(page)
+main#learn-more(class="container")
+  div(class="row align-items-center")
+    div(class="col-lg")
+      h1 What is SOAR?
+      p The SOAR Conference aims to ease students’ transitions from middle school to high school through various workshops and activities. We equip students with the necessary skills to succeed in high school, developing their collaboration skills and leadership ability and ultimately instilling in them a sense of optimism and confidence about high school.
+    div(class="col-lg text-center")
+      iframe(class="soar-video" src="https://www.youtube.com/embed/VAQCjkfGs7M" allowfullscreen)
 
-  body
-    include mixins/nav.pug
-    +nav(page)
+div.story-container(class="my-4 py-4")
+  h1(class="text-center mb-2") Stories
+  include mixins/stories.pug
+  +stories([
+    {
+      name: "Vaarij Betala",
+      role: "Delegate 2018",
+      message: "As soon as I got there, the volunteers were very eager to help, after that the volunteers were engaging, keeping us engaged with songs and activities. During the mentorship I learned a lot. The LDs walked us through time management, organization and conflict de-escalation. They were always ready to answer any questions we might have. I can say from experience I have learned a lot about high school from SOAR."
+    },
+    {
+      name: "Tanya Puri",
+      role: "Delegate 2018",
+      message: "SOAR 2018 was definitely an unforgettable conference for me because it’s where I met my best friend :)"
+    },
+    {
+      name: "Aayushi Jha",
+      role: "Leadership Developer 2019",
+      message: "[My delegates were] initially timid but by the end of the conference they were all more confident and vibrant. Through my experience, although I was able to impart my wisdom to my delegates, they had taught me a lot as well. During team activities my delegates were inspiring to watch as they took the time to learn more about each other and their strengths before conducting an activity. [&hellip;] I was grateful to be able to be in a position to make an impact on my delegates but I was also to learn more about myself and learn from those around me."
+    },
+    {
+      name: "Aarush Bhradwaj",
+      role: "Delegate 2018",
+      message: "SOAR was an amazing day during which I made many new friends in my group and I had a fantastic experience with all of the different activities. Additionally, all of the LDs and volunteers were very friendly."
+    },
+    {
+      name: "Vyomesh Iyengar",
+      role: "Former Chair 2020",
+      message: "[One] of the most incredible, transformative experiences of my life. [As a 2015 delegate, executive member, and finally Chair] SOAR taught me about leadership through action, growing through my disappointments, and working with those around me. Through SOAR I met some of my closest friends to this day, [and] had some of my most memorable experiences. [&hellip;] While under the impression that I was just having fun, I subconsciously learnt how to develop my thought process and how to work with others. [&hellip;] I would encourage everyone to SOAR into their future!"
+    },
+    {
+      name: "Ankita Goyat",
+      role: "Volunteer 2019",
+      message: "Honestly, SOAR was really fun&mdash;it had its own unique and wholesome vibe that I liked a lot. Seeing the delegates hyped up and really enjoying themselves throughout the conference was sweet [&hellip;] I'd rate my SOAR experience a straight up 10/10 and I can't wait until SOAR 2021!!!"
+    }
+  ], 5000)
 
-    div(class="slideshow-container text-light")
-      div(class="carousel slide" data-ride="carousel" data-interval="5000")
-        div(class="carousel-inner")
-          each path, index in ["2017/2.jpg", "2017/10.jpg", "2018/DB3E89ED-5FDF-48FB-9618-AB2E88F37ED8_1_201_a.jpg", "2018/DSC07940.jpg", "2018/IMG_2507.jpg", "2019/IMG_5876.jpg"]
-            div(class=("carousel-item" + (index == 0 ? " active" : "")))
-              img(class="d-block w-100" src=`img/${path}` alt=`Slide ${index + 1}`)
-      div(class="overlay-text")
-        h1(class="text-center display-1") SOAR 2021
-        p(class="text-center lead") Inspiring the leaders of tomorrow
-        .text-center
-          a(class="btn btn-secondary" href="#learn-more") Learn more
-          a(class="btn btn-primary" href="apply.html") Apply for SOAR 2021!
+.container
+  h1(class="text-center my-4")
+    a(
+      class="collapser"
+      data-toggle="collapse"
+      href="#gallery-general"
+      role="button"
+      aria-expanded="true"
+      aria-controls="gallery-general"
+    ) Gallery
+  #gallery-general(class="collapse show")
+    include mixins/gallery.pug
+    +gallery("gallery-general", [
+      "2017/3.jpg",
+      "2017/8.jpg",
+      "2018/DSC07503.jpg",
+      "2018/IMG_188.jpg",
+      "2019/DSC_1794.jpg",
+      "2019/IMG_0995.jpg"
+    ], "col-sm-6 col-md-4 col-lg-4")
+    p.text-center
+      a(class="btn btn-secondary" href="gallery.html") See all photos
 
-    main#learn-more(class="container")
-      div(class="row align-items-center")
-        div(class="col-lg")
-          h1 What is SOAR?
-          p The SOAR Conference aims to ease students’ transitions from middle school to high school through various workshops and activities. We equip students with the necessary skills to succeed in high school, developing their collaboration skills and leadership ability and ultimately instilling in them a sense of optimism and confidence about high school.
-        div(class="col-lg text-center")
-          iframe(class="soar-video" src="https://www.youtube.com/embed/VAQCjkfGs7M" allowfullscreen)
+  include includes/jumbotron.pug
 
-    div.story-container(class="my-4 py-4")
-      h1(class="text-center mb-2") Stories
-      include mixins/stories.pug
-      +stories([
-        {
-          name: "Vaarij Betala",
-          role: "Delegate 2018",
-          message: "As soon as I got there, the volunteers were very eager to help, after that the volunteers were engaging, keeping us engaged with songs and activities. During the mentorship I learned a lot. The LDs walked us through time management, organization and conflict de-escalation. They were always ready to answer any questions we might have. I can say from experience I have learned a lot about high school from SOAR."
-        },
-        {
-          name: "Tanya Puri",
-          role: "Delegate 2018",
-          message: "SOAR 2018 was definitely an unforgettable conference for me because it’s where I met my best friend :)"
-        },
-        {
-          name: "Aayushi Jha",
-          role: "Leadership Developer 2019",
-          message: "[My delegates were] initially timid but by the end of the conference they were all more confident and vibrant. Through my experience, although I was able to impart my wisdom to my delegates, they had taught me a lot as well. During team activities my delegates were inspiring to watch as they took the time to learn more about each other and their strengths before conducting an activity. [&hellip;] I was grateful to be able to be in a position to make an impact on my delegates but I was also to learn more about myself and learn from those around me."
-        },
-        {
-          name: "Aarush Bhradwaj",
-          role: "Delegate 2018",
-          message: "SOAR was an amazing day during which I made many new friends in my group and I had a fantastic experience with all of the different activities. Additionally, all of the LDs and volunteers were very friendly."
-        },
-        {
-          name: "Vyomesh Iyengar",
-          role: "Former Chair 2020",
-          message: "[One] of the most incredible, transformative experiences of my life. [As a 2015 delegate, executive member, and finally Chair] SOAR taught me about leadership through action, growing through my disappointments, and working with those around me. Through SOAR I met some of my closest friends to this day, [and] had some of my most memorable experiences. [&hellip;] While under the impression that I was just having fun, I subconsciously learnt how to develop my thought process and how to work with others. [&hellip;] I would encourage everyone to SOAR into their future!"
-        },
-        {
-          name: "Ankita Goyat",
-          role: "Volunteer 2019",
-          message: "Honestly, SOAR was really fun&mdash;it had its own unique and wholesome vibe that I liked a lot. Seeing the delegates hyped up and really enjoying themselves throughout the conference was sweet [&hellip;] I'd rate my SOAR experience a straight up 10/10 and I can't wait until SOAR 2021!!!"
-        }
-      ], 5000)
-
-    .container
-      h1(class="text-center my-4")
-        a(
-          class="collapser"
-          data-toggle="collapse"
-          href="#gallery-general"
-          role="button"
-          aria-expanded="true"
-          aria-controls="gallery-general"
-        ) Gallery
-      #gallery-general(class="collapse show")
-        include mixins/gallery.pug
-        +gallery("gallery-general", [
-          "2017/3.jpg",
-          "2017/8.jpg",
-          "2018/DSC07503.jpg",
-          "2018/IMG_188.jpg",
-          "2019/DSC_1794.jpg",
-          "2019/IMG_0995.jpg"
-        ], "col-sm-6 col-md-4 col-lg-4")
-        p.text-center
-          a(class="btn btn-secondary" href="gallery.html") See all photos
-
-      include includes/jumbotron.pug
-
-    .container
-      include mixins/prefooter.pug
-      +prefooter(page)
-
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous")
-
-    script(src="js/main.js")
-    script(src="js/stories.js")
+.container
+  include mixins/prefooter.pug
+  +prefooter(page)

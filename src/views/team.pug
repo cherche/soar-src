@@ -1,202 +1,186 @@
-doctype html
-- var page = 'Team'
+main(class="team container")
+  .team-intro
+    h1(class="team text-center display-2") Meet the team
+    p.lead Meet the faces behind the organization, and don't hesitate to reach out to any of us!
 
-html(lang="en")
-  include mixins/head.pug
-  +head(page)
+  include mixins/team.pug
+  +portfolio("chair", [
+    {
+      name: "Lisa Vong",
+      socials: {
+        instagram: "lisa.vongg",
+        email: "lisa.vongg0@gmail.com"
+      }
+    },
+    {
+      name: "Mayumi Ramos",
+      socials: {
+        instagram: "mayumi_ramos",
+        email: "mayumiramos13@gmail.com"
+      }
+    },
+    {
+      name: "Zeeniya Waseem",
+      socials: {
+        instagram: "zeeniiya",
+        email: "zeeniiiyaw@gmail.com"
+      }
+    }
+  ])
 
-  body
-    include mixins/nav.pug
-    +nav(page)
+  +portfolio("dev", [
+    {
+      name: "Ryan Nguyen",
+      socials: {
+        github: "cherche",
+        instagram: "ryanorshine",
+        email: "contactryannguyen@gmail.com"
+      }
+    }
+  ])
 
-    main(class="team container")
-      .team-intro
-        h1(class="team text-center display-2") Meet the team
-        p.lead Meet the faces behind the organization, and don't hesitate to reach out to any of us!
+  +portfolio("mld", [
+    {
+      name: "Aashna Jacob",
+      socials: {
+        instagram: "_aashxna",
+        email: "aashnajacob@gmail.com"
+      }
+    },
+    {
+      name: "Hamisha Sodhi",
+      socials: {
+        instagram: "hamishasodhi",
+        email: "hamishasodhi05@gmail.com"
+      }
+    },
+    {
+      name: "Sabrina Singh",
+      socials: {
+        instagram: "sabrinaasingh",
+        email: "sabrinaasingh@hotmail.com"
+      }
+    },
+    {
+      name: "Timurul Hoque Kazi",
+      socials: {
+        instagram: "thkazi_",
+        email: "T.H.Kazi47@gmail.com"
+      }
+    }
+  ])
 
-      include mixins/team.pug
-      +portfolio("chair", [
-        {
-          name: "Lisa Vong",
-          socials: {
-            instagram: "lisa.vongg",
-            email: "lisa.vongg0@gmail.com"
-          }
-        },
-        {
-          name: "Mayumi Ramos",
-          socials: {
-            instagram: "mayumi_ramos",
-            email: "mayumiramos13@gmail.com"
-          }
-        },
-        {
-          name: "Zeeniya Waseem",
-          socials: {
-            instagram: "zeeniiya",
-            email: "zeeniiiyaw@gmail.com"
-          }
-        }
-      ])
+  +portfolio("promo", [
+    {
+      name: "Eshal Waseem",
+      socials: {
+        instagram: "eshal.w",
+        email: "beingeshi@gmail.com"
+      }
+    },
+    {
+      name: "Gurjot Jhutty",
+      socials: {
+        instagram: "gurjot.jh",
+        email: "gurjotjhutty3399@gmail.com"
+      }
+    },
+    {
+      name: "Prisha Tharwani",
+      socials: {
+        instagram: "prisha.t15",
+        email: "tharwaniprisha@gmail.com"
+      }
+    },
+    {
+      name: "Raj Bhatti",
+      socials: {
+        instagram: "raj_.b",
+        email: "dallybhatti@gmail.com"
+      }
+    }
+  ])
 
-      +portfolio("dev", [
-        {
-          name: "Ryan Nguyen",
-          socials: {
-            github: "cherche",
-            instagram: "ryanorshine",
-            email: "contactryannguyen@gmail.com"
-          }
-        }
-      ])
+  +portfolio("spons", [
+    {
+      name: "Aditya Trivedi",
+      socials: {
+        instagram: "adityatrivedi__",
+        email: "aditya.triv03@gmail.com"
+      }
+    },
+    {
+      name: "Nimer Boparai",
+      socials: {
+        instagram: "nimer_118",
+        email: "nimerkboparai@gmail.com"
+      }
+    },
+    {
+      name: "Shahmeer Ali",
+      socials: {
+        instagram: "shvhmeer",
+        email: "shvhmeer@gmail.com"
+      }
+    },
+    {
+      name: "Vaarij Betala",
+      socials: {
+        instagram: "vj.b3tala.svg",
+        email: "vaarijbetala@gmail.com"
+      }
+    }
+  ])
 
-      +portfolio("mld", [
-        {
-          name: "Aashna Jacob",
-          socials: {
-            instagram: "_aashxna",
-            email: "aashnajacob@gmail.com"
-          }
-        },
-        {
-          name: "Hamisha Sodhi",
-          socials: {
-            instagram: "hamishasodhi",
-            email: "hamishasodhi05@gmail.com"
-          }
-        },
-        {
-          name: "Sabrina Singh",
-          socials: {
-            instagram: "sabrinaasingh",
-            email: "sabrinaasingh@hotmail.com"
-          }
-        },
-        {
-          name: "Timurul Hoque Kazi",
-          socials: {
-            instagram: "thkazi_",
-            email: "T.H.Kazi47@gmail.com"
-          }
-        }
-      ])
+  +portfolio("cd", [
+    {
+      name: "Asrat Randhawa",
+      socials: {
+        instagram: "a.srat._r",
+        email: "asrat0606@gmail.com"
+      }
+    },
+    {
+      name: "Medha Ghanakota",
+      socials: {
+        email: "ghanakotamedha@gmail.com"
+      }
+    },
+    {
+      name: "Rhea Nijjer",
+      socials: {
+        instagram: "rheanijjer",
+        email: "rheanijjer@gmail.com"
+      }
+    },
+    {
+      name: "Sneh Boro",
+      socials: {
+        instagram: "sneh.orb",
+        email: "sheh.boro@gmail.com"
+      }
+    }
+  ])
+  
+  +portfolio("jr", [
+    {
+      name: "Kushi Iyer",
+      socials: {
+        instagram: "kushi.i_",
+        email: "kushi.iyer06@gmail.com"
+      }
+    },
+    {
+      name: "Vinaya Sharma",
+      socials: {
+        instagram: "vinaya_sharmaa"
+      }
+    }
+  ])
 
-      +portfolio("promo", [
-        {
-          name: "Eshal Waseem",
-          socials: {
-            instagram: "eshal.w",
-            email: "beingeshi@gmail.com"
-          }
-        },
-        {
-          name: "Gurjot Jhutty",
-          socials: {
-            instagram: "gurjot.jh",
-            email: "gurjotjhutty3399@gmail.com"
-          }
-        },
-        {
-          name: "Prisha Tharwani",
-          socials: {
-            instagram: "prisha.t15",
-            email: "tharwaniprisha@gmail.com"
-          }
-        },
-        {
-          name: "Raj Bhatti",
-          socials: {
-            instagram: "raj_.b",
-            email: "dallybhatti@gmail.com"
-          }
-        }
-      ])
+.container
+  include includes/jumbotron.pug
 
-      +portfolio("spons", [
-        {
-          name: "Aditya Trivedi",
-          socials: {
-            instagram: "adityatrivedi__",
-            email: "aditya.triv03@gmail.com"
-          }
-        },
-        {
-          name: "Nimer Boparai",
-          socials: {
-            instagram: "nimer_118",
-            email: "nimerkboparai@gmail.com"
-          }
-        },
-        {
-          name: "Shahmeer Ali",
-          socials: {
-            instagram: "shvhmeer",
-            email: "shvhmeer@gmail.com"
-          }
-        },
-        {
-          name: "Vaarij Betala",
-          socials: {
-            instagram: "vj.b3tala.svg",
-            email: "vaarijbetala@gmail.com"
-          }
-        }
-      ])
-
-      +portfolio("cd", [
-        {
-          name: "Asrat Randhawa",
-          socials: {
-            instagram: "a.srat._r",
-            email: "asrat0606@gmail.com"
-          }
-        },
-        {
-          name: "Medha Ghanakota",
-          socials: {
-            email: "ghanakotamedha@gmail.com"
-          }
-        },
-        {
-          name: "Rhea Nijjer",
-          socials: {
-            instagram: "rheanijjer",
-            email: "rheanijjer@gmail.com"
-          }
-        },
-        {
-          name: "Sneh Boro",
-          socials: {
-            instagram: "sneh.orb",
-            email: "sheh.boro@gmail.com"
-          }
-        }
-      ])
-      
-      +portfolio("jr", [
-        {
-          name: "Kushi Iyer",
-          socials: {
-            instagram: "kushi.i_",
-            email: "kushi.iyer06@gmail.com"
-          }
-        },
-        {
-          name: "Vinaya Sharma",
-          socials: {
-            instagram: "vinaya_sharmaa"
-          }
-        }
-      ])
-
-    .container
-      include includes/jumbotron.pug
-
-    .container
-      include mixins/prefooter.pug
-      +prefooter(page)
-
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
-    
-    script(src="js/main.js")
+.container
+  include mixins/prefooter.pug
+  +prefooter(page)
