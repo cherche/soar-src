@@ -27,3 +27,5 @@ Temporary Items
 
 css
 dev
+build/*
+!build/CNAME
