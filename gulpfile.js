@@ -5,10 +5,6 @@ const gulpLess = require('gulp-less')
 const path = require('path')
 const resizer = require('gulp-images-resizer')
 
-const cleanCSS = require('gulp-clean-css')
-const rename = require('gulp-rename')
-const minify = require('gulp-minify')
-
 gulp.task('views-dev', function () {
   return gulp.src('src/views/dev/*.pug')
     .pipe(gulpPug({
@@ -71,6 +67,10 @@ gulp.task('dev-mode', function () {
 gulp.task('default', gulp.series('dev-mode'))
 
 // START OF BUILD TASKS
+const cleanCSS = require('gulp-clean-css')
+const rename = require('gulp-rename')
+const concat = require('gulp-concat')
+const uglify = require('gulp-uglify')
 
 gulp.task('views-build', function () {
   return gulp.src('src/views/build/*.pug')
@@ -98,8 +98,10 @@ gulp.task('css-build', function () {
 gulp.task('styles-build', gulp.series('less-build', 'css-build'))
 
 gulp.task('scripts-build', function () {
-  return gulp.src('./src/js/**/*.js')
-    .pipe(minify())
+  return gulp.src('src/js/**/*.js')
+    .pipe(concat('main.js'))
+    .pipe(uglify())
+    .pipe(rename('main.min.js'))
     .pipe(gulp.dest('build/js'))
 })
 
