@@ -7,6 +7,7 @@ const resizer = require('gulp-images-resizer')
 
 const cleanCSS = require('gulp-clean-css')
 const rename = require('gulp-rename')
+const minify = require('gulp-minify')
 
 gulp.task('views-dev', function () {
   return gulp.src('src/views/*.pug')
@@ -49,7 +50,7 @@ gulp.task('thumbnails-dev', function () {
   return gulp.src([
       'dev/img/**/*.jpg',
       '!dev/img/exec/**/*.jpg',
-      '!dev.img/thumbnail/**/*.jpg'
+      '!dev/img/thumbnail/**/*.jpg'
     ])
     .pipe(resizer({
       format: 'jpg',
@@ -74,11 +75,69 @@ gulp.task('dev-mode', function () {
   gulp.watch('./src/js/**/*.js', gulp.series('scripts-dev'))
 })
 
+gulp.task('default', gulp.series('dev-mode'))
+
 // START OF BUILD TASKS
 
-gulp.task('styles-build', function () {
-  return gulp.src('css/main.css')
+gulp.task('views-build', function () {
+  return gulp.src('src/views/*.pug')
+    .pipe(gulpPug({
+      doctype: 'html'
+    }))
+    .pipe(gulp.dest('./build'))
+})
+
+gulp.task('less-build', function () {
+  return gulp.src('src/less/main.less')
+    .pipe(gulpLess({
+      paths: [path.join(__dirname, 'less', 'includes')]
+    }))
+    .pipe(gulp.dest('build/css'))
+})
+
+gulp.task('css-build', function () {
+  return gulp.src('build/css/main.css')
     .pipe(cleanCSS())
     .pipe(rename('main.min.css'))
-    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('build/css'))
 })
+
+gulp.task('scripts-build', function () {
+  return gulp.src('./src/js/**/*.js')
+    .pipe(minify())
+    .pipe(gulp.dest('build/js'))
+})
+
+gulp.task('lib-build', function () {
+  return gulp.src('lib/**/*')
+    .pipe(gulp.dest('build'))
+})
+
+gulp.task('assets-build', function () {
+  return gulp.src([
+    'assets/**/*',
+    '!assets.img/thumbnail/**/*.jpg'
+  ])
+    .pipe(gulp.dest('build'))
+})
+
+gulp.task('thumbnails-build', function () {
+  return gulp.src([
+      'build/img/**/*.jpg',
+      '!build/img/exec/**/*.jpg',
+      '!build/img/thumbnail/**/*.jpg'
+    ])
+    .pipe(resizer({
+      format: 'jpg',
+      width: 300
+    }))
+    .pipe(gulp.dest('build/img/thumbnail'))
+})
+
+gulp.task('build', gulp.parallel(
+  'views-build',
+  gulp.series('less-build', 'css-build'),
+  'scripts-build',
+  'lib-build',
+  gulp.series('assets-build', 'thumbnails-build')
+))
