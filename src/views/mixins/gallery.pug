@@ -10,7 +10,7 @@ mixin galleryRow(set, paths, rw)
 
 mixin gallery(set, paths, rw)
   div(id=set class="photo-gallery")
-    +galleryRow(set, paths)
+    +galleryRow(set, paths, rw)
 
 mixin galleryCollapsible(name, set, paths, expanded=false, rw)
   h3
@@ -23,4 +23,4 @@ mixin galleryCollapsible(name, set, paths, expanded=false, rw)
       aria-controls=set
     )= name
   div(id=set class=("photo-gallery collapse" + (expanded ? " show" : "")))
-    +galleryRow(set, paths)
+    +galleryRow(set, paths, rw)
