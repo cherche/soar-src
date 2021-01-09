@@ -26,7 +26,8 @@ main.container {
   height: 25rem;
 }
 
-/* For contrast reasons, this is a translucent white overlay */
+/* For contrast reasons, this is a translucent overlay
+(but the exact colour is defined elsewhere in theming.less) */
 .slideshow-container .carousel .carousel-item::after {
   content: '';
   display: block;
@@ -35,7 +36,8 @@ main.container {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0,0,0,0.8);
+  /* . . . but we at least establish a default */
+  background: rgba(0, 0, 0, 0.8);
 }
 
 /* Hopefully you remember this paradigm.
