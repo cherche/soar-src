@@ -9,7 +9,7 @@ mixin navItem(page, active)
 mixin nav(active)
   nav(class=("main-nav navbar navbar-expand-md navbar-dark" + ((active === "Home") ? " fixed-top home-nav" : " bg-dark sticky-top")))
     a(class="navbar-brand ml-4" href=((active === "Home") ? "#" : ".")) SOAR
-    button(class="navbar-toggler" data-toggle="collapse" data-target="#mainNav" aria-controls="#mainNav" aria-expanded="false" aria-label="Toggle navigation")
+    button(class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-controls="#mainNav" aria-expanded="false" aria-label="Toggle navigation")
       span(class="navbar-toggler-icon")
     div(class="collapse navbar-collapse" id="mainNav")
       div(class="navbar-nav ml-auto mt-2 mt-lg-0")
