@@ -15,7 +15,7 @@ gulp.task('views-dev', function () {
 
 gulp.task('styles-dev', function () {
   return gulp.src([
-    './src/less/**/*.less',
+    './src/less/*.less',
     '!./src/less/main.less'
   ])
     .pipe(gulpLess({
