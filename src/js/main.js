@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  const $scroller = $('.scroller')
   const $mainNav = $('.main-nav')
 
   // Don't mind this bad boy. They'll just help us make adjustments later
@@ -31,7 +32,7 @@ $(document).ready(function () {
     const trueDest = idealDest - $mainNav.height()
     // There we go :)
 
-    $('html, body').animate({
+    $scroller.animate({
       // But personally, I like a little more breathing room
       scrollTop: trueDest - BREATHING_ROOM
     }, 300)
@@ -53,12 +54,12 @@ $(document).ready(function () {
   let isNavCollapsed = true
   const $navToggler = $mainNav.find('.navbar-toggler')
 
-  $(window).on('scroll', function () {
+  $scroller.on('scroll', function () {
     // If the nav is expanded, scroll is irrelevant
     // It is REALLY important that an expanded nav is always active
     if (!isNavCollapsed) return
 
-    if ($(window).scrollTop() > 30) {
+    if ($scroller.scrollTop() > 30) {
       $mainNav.addClass('active')
     } else {
       $mainNav.removeClass('active')
@@ -82,7 +83,7 @@ $(document).ready(function () {
 
   // And, of course, we should also check on page load
   // in case someone loads a fragment (e.g., #learn-more)
-  if ($(window).scrollTop() > 30) {
+  if ($scroller.scrollTop() > 30) {
     $mainNav.addClass('active')
   } else {
     $mainNav.removeClass('active')

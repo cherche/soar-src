@@ -17,9 +17,10 @@ html(lang="en")
 
     block styles
   body
-    include mixins/nav.pug
-    +nav(page)
-    block content
+    .scroller
+      include mixins/nav.pug
+      +nav(page)
+      block content
       
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
     if (page === "Apply")
