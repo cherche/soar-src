@@ -18,15 +18,28 @@ body {
 
 .nav-link {
   transition: border-width 0.1s;
+  position: relative;
 
-  &:hover, {
-    border-bottom: 0.2rem solid white;
+  &::before {
+    z-index: -100;
+    content: '';
+    display: block;
+    width: 0%;
+    height: 0.8rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transition: width 0.2s ease;
+  }
+
+  &:hover::before {
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 767.99px) {
-  .nav-link:hover {
-    border-bottom: none;
+  .nav-link::before {
+    display: none;
   }
 
   .nav-item.btn {

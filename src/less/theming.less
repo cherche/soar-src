@@ -58,6 +58,19 @@ body {
   background-color: transparent !important;
 }
 
+.nav-link {
+  &::before {
+    background-color: @nav-highlight-color;
+  }
+
+  /* For the active ones, we want it to show */
+  &.active::before {
+    width: 100%;
+    /* . . . but we also want it to be a little different than the highlight */
+    background-color: lighten(@nav-highlight-color, 5%);
+  }
+}
+
 footer {
   background-color: @footer-bg-color;
 
