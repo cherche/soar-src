@@ -35,7 +35,7 @@ mixin portfolioCard(role, member)
   - var roleLong = ROLE_LOOKUP[role].long
   - var rolePlural = ROLE_LOOKUP[role].plural
   - var imgName = name.toLowerCase().split(' ').join('_') + '.jpg'
-  - var imgPath = `img/exec/${role}/${imgName}`
+  - var imgPath = `img/md/exec/${role}/${imgName}`
   .card
     img(src=imgPath class="card-img-top" alt=`${name}, ${roleLong}`)
     .card-body

@@ -42,11 +42,25 @@ gulp.task('assets-copy-dev', function () {
     .pipe(gulp.dest('dev/'))
 })
 
+// There must be a better way . . .
+gulp.task('md-dev', function () {
+  return gulp.src([
+      'assets/img/**/*.jpg',
+      '!assets/img/2017/**/*.jpg',
+      '!assets/img/2018/**/*.jpg',
+      '!assets/img/2019/**/*.jpg'
+    ])
+    .pipe(resizer({
+      format: 'jpg',
+      width: 600
+    }))
+    .pipe(gulp.dest('dev/img/md/'))
+})
+
 gulp.task('thumbnails-dev', function () {
   return gulp.src([
-      'dev/img/**/*.jpg',
-      '!dev/img/exec/**/*.jpg',
-      '!dev/img/thumbnail/**/*.jpg'
+      'assets/img/**/*.jpg',
+      '!assets/img/exec/**/*.jpg'
     ])
     .pipe(resizer({
       format: 'jpg',
@@ -55,7 +69,10 @@ gulp.task('thumbnails-dev', function () {
     .pipe(gulp.dest('dev/img/thumbnail/'))
 })
 
-gulp.task('assets-dev', gulp.series('assets-copy-dev', 'thumbnails-dev'))
+gulp.task('assets-dev', gulp.series(
+  'assets-copy-dev',
+  gulp.parallel('thumbnails-dev', 'md-dev')
+))
 
 // Continuous gulp task to make development easier
 gulp.task('dev-mode', function () {
@@ -112,23 +129,37 @@ gulp.task('lib-build', function () {
 
 gulp.task('assets-build', function () {
   return gulp.src([
-    'assets/**/*',
-    '!assets.img/thumbnail/**/*.jpg'
-  ])
+      'assets/**/*',
+      '!assets/img/thumbnail/**/*.jpg'
+    ])
     .pipe(gulp.dest('build'))
+})
+
+// Again, this is terrible. There must a better way
+gulp.task('md-build', function () {
+  return gulp.src([
+      'assets/img/**/*.jpg',
+      '!assets/img/2017/**/*.jpg',
+      '!assets/img/2018/**/*.jpg',
+      '!assets/img/2019/**/*.jpg'
+    ])
+    .pipe(resizer({
+      format: 'jpg',
+      width: 600
+    }))
+    .pipe(gulp.dest('build/img/md/'))
 })
 
 gulp.task('thumbnails-build', function () {
   return gulp.src([
-      'build/img/**/*.jpg',
-      '!build/img/exec/**/*.jpg',
-      '!build/img/thumbnail/**/*.jpg'
+      'assets/img/**/*.jpg',
+      '!assets/img/exec/**/*.jpg'
     ])
     .pipe(resizer({
       format: 'jpg',
       width: 300
     }))
-    .pipe(gulp.dest('build/img/thumbnail'))
+    .pipe(gulp.dest('build/img/thumbnail/'))
 })
 
 gulp.task('dev-ish', gulp.parallel(
@@ -152,5 +183,5 @@ gulp.task('build-ish', gulp.parallel(
 
 gulp.task('build', gulp.parallel(
   'build-ish',
-  gulp.series('assets-build', 'thumbnails-build')
+  gulp.series('assets-build', gulp.parallel('thumbnails-build', 'md-build'))
 ))
