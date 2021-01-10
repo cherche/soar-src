@@ -2,6 +2,7 @@ body {
   height: 100vh;
   margin: 0;
   position: relative;
+  overflow: hidden;
 }
 
 .scroller {
@@ -26,8 +27,9 @@ main.container {
 }
 
 /* The photos are just way too big, so this limits their size a bit */
-.slideshow-container .carousel .carousel-item {
+.slideshow-container .carousel {
   height: 25rem;
+  overflow: hidden;
 }
 
 /* For contrast reasons, this is a translucent overlay
@@ -76,8 +78,8 @@ iframe.soar-video {
   margin-bottom: 0.5rem;
 }
 
-.btn ~ .btn {
-  margin-left: 0.5rem;
+.btn {
+  margin-right: 0.5rem;
 }
 
 a[data-toggle='collapse'] {
@@ -148,8 +150,8 @@ Truly bizarre. Guess we'll never know.
   display: none;
 }
 
-.team a ~ a {
-  margin-left: 0.1em; /* And also the icons were too close together */
+.team a {
+  margin-right: 0.1em; /* And also the icons were too close together */
 }
 
 .team .collapser {
@@ -175,8 +177,11 @@ Truly bizarre. Guess we'll never know.
 }
 @media screen and (max-width: 575.99px){
   /* De-clutter the slideshow a bit on mobile */
-  #slideshow .carousel-item {
+  .slideshow-container {
     height: 18rem;
+    .carousel, .carousel-inner, .carousel-item {
+      height: 18rem;
+    }
   }
 
   /* . . . and of course make the text smaller too. */

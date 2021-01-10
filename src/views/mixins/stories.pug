@@ -12,6 +12,10 @@ mixin storyBody({ name, role, message })
 
 mixin stories(storyArr, interval)
   div(class="stories" data-interval=interval)
+    each story, index in storyArr
+      div(class=("story" + ((index === 0) ? " active" : "")))
+        +storyBody(story)
+
     div.story-control
       span.page-indicator
         span.page-active ?
@@ -23,7 +27,3 @@ mixin stories(storyArr, interval)
       a(class="story-control-next" href="#" role="button")
         i(class="bi bi-caret-right-fill" aria-hidden="true")
         span(class="sr-only") Next
-
-    each story, index in storyArr
-      div(class=("story" + ((index === 0) ? " active" : "")))
-        +storyBody(story)

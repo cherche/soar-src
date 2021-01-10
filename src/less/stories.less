@@ -19,11 +19,13 @@
   transform: translate(-50%, -50%);
 
   opacity: 0;
+  user-select: none;
   transition: opacity 0.2s;
 }
 
 .story.active {
   opacity: 1;
+  user-select: auto;
   /* Remember that we set it up with all stories overlapping one another.
   This meant that you could not highlight the stories on the "bottom".
   So we get around it with this hack. Obviously, 100 is arbitrary. */

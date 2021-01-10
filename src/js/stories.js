@@ -88,15 +88,20 @@ $(document).ready(function () {
     e.preventDefault()
     goToPrevStory()
     // The idea is that we DO want the autoscroll to resume,
-    // but not for a while. So we'll wait 30s before we get back to it.
-    resetTimeout(30000)
+    // but not for a while. So we'll wait 20s before we get back to it.
+    resetTimeout(20000)
     return false
   })
 
   $next.on('click', (e) => {
     e.preventDefault()
     goToNextStory()
-    resetTimeout(30000)
+    resetTimeout(20000)
     return false
+  })
+
+  // Also, we would like to disable the controls if someone interacts at all
+  $stories.on('click', (e) => {
+    resetTimeout(20000)
   })
 })
