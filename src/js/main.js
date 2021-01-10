@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  const $scroller = $('.scroller')
   const $mainNav = $('.main-nav')
 
   // Don't mind this bad boy. They'll just help us make adjustments later
@@ -32,7 +31,7 @@ $(document).ready(function () {
     const trueDest = idealDest - $mainNav.height()
     // There we go :)
 
-    $scroller.animate({
+    $('html, body').animate({
       // But personally, I like a little more breathing room
       scrollTop: trueDest - BREATHING_ROOM
     }, 300)
@@ -60,7 +59,7 @@ $(document).ready(function () {
   //      y -> [opaque nav]
   //      n -> [transparent nav]
 
-  let isScrolledDown = $scroller.scrollTop() > 30
+  let isScrolledDown = $(window).scrollTop() > 30
   let isNavCollapsed = $navToggler.hasClass('collapsed')
 
   // This function makes it pretty reusable. Efficient? Optimized? Probably not
@@ -72,8 +71,8 @@ $(document).ready(function () {
     }
   }
 
-  $scroller.on('scroll', function () {
-    isScrolledDown = $scroller.scrollTop() > 30
+  $(window).on('scroll', function () {
+    isScrolledDown = $(window).scrollTop() > 30
     setNavOpacity()
   })
 
