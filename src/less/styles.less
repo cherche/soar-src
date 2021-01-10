@@ -149,22 +149,34 @@ a[data-toggle='collapse']::after {
 
 .accordion a[data-toggle='collapse'] {
   color: inherit;
+
+  &::after {
+    content: '';
+  }
+
+  .card-header::before {
+    font-family: 'bootstrap-icons';
+    content: '\f2b6';
+    margin-right: 1rem;
+  }
+
+  &.collapsed .card-header::before {
+    content: '\f4a5';
+  }
 }
 
-.accordion a[data-toggle='collapse']::after {
-  content: '' !important;
-}
+.faq {
+  .accordion {
+    margin-bottom: 1em;
+  }
 
-.faq .accordion {
-  margin-bottom: 1em;
-}
+  .card {
+    margin: 0;
+  }
 
-.faq .card {
-  margin: 0;
-}
-
-.faq p {
-  margin-bottom: 0; /* Necessary to fix the collapse animation stutter */
+  p {
+    margin-bottom: 0; /* Necessary to fix the collapse animation stutter */
+  }
 }
 
 .team .card h5,
