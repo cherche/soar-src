@@ -77,7 +77,12 @@
 
 include mixins/accordion.pug
 main(class=`${page.toLowerCase()} container`)
-  h1 Frequently Asked Questions
+  include mixins/intro.pug
+  +intro({
+    title: "Frequently Asked Questions",
+    size: 2
+  })
+
   .row
     .col-sm
       h2 General

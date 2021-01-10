@@ -10,16 +10,18 @@ html(lang="en")
     if (page === "Home" || page === "Gallery")
       // We need Lightbox for the galleries to work, duh!
       link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css")
+
     if (page != "Home")
       title SOAR | #{page}
     else
-      title SOAR
+      title SOAR Conference
 
     block styles
   body
     include mixins/nav.pug
     +nav(page)
     block content
+    include includes/footer.pug
       
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
     if (page === "Apply")

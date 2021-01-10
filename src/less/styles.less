@@ -1,7 +1,11 @@
+@footer-height: 3.5rem;
+
 body {
-  height: 100vh;
-  margin: 0;
+  min-height: 100vh;
+  /* Some scaffolding for sticky footer */
   position: relative;
+  /* Without this, the footer covers content. Bad. */
+  padding-bottom: @footer-height + 2rem;
 }
 
 /* {
@@ -17,9 +21,25 @@ main.container {
 }
 
 .prefooter {
-  /* Why so much bottom margin? There's some weird problem with the .scroller
-  which cuts off the prefooter on mobile! "Temporary", super lazy fix. */
-  margin: 3em 0 8em;
+  margin-top: 3rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: @footer-height;
+  padding: 1rem 0;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .social {
+    /* Hacky technique to make social icon bigger without messing up alignment */
+    font-size: 1.25em;
+    margin-top: -0.25rem;
+  }
 }
 
 /* The photos are just way too big, so this limits their size a bit */
@@ -64,6 +84,7 @@ iframe.soar-video {
   width: 400px;
   max-width: 100%;
   height: 300px;
+  border-radius: 0.5rem;
 }
 
 .card {
@@ -72,9 +93,6 @@ iframe.soar-video {
 
 .btn {
   margin-bottom: 0.5rem;
-}
-
-.btn {
   margin-right: 0.5rem;
 }
 
@@ -99,8 +117,16 @@ a[data-toggle='collapse']::after {
   margin-top: -15px;
 }
 
+.intro {
+  h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
 .gallery h2 {
   margin-top: 2rem;
+  text-align: center;
 }
 
 .accordion a[data-toggle='collapse'] {

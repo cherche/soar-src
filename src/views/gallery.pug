@@ -1,9 +1,13 @@
 main(class="gallery container")
-  h1(class="text-center display-4") Gallery
+  include mixins/intro.pug
+  +intro({
+    title: "Gallery",
+    lead: "Explore our past conferences since 2017!",
+    size: 2
+  })
 
-  h2 SOAR 2019
   include mixins/gallery.pug
-  +galleryCollapsible("Photos", "gallery-2019", [
+  +galleryCollapsible("SOAR 2019", "gallery-2019", [
     "2019/DSC_0090.jpg",
     "2019/DSC_0094.jpg",
     "2019/DSC_0206.jpg",
@@ -45,8 +49,7 @@ main(class="gallery container")
     "2019/soar631.jpg"
   ], true)
 
-  h2 SOAR 2018
-  +galleryCollapsible("Photos", "gallery-2018", [
+  +galleryCollapsible("SOAR 2018", "gallery-2018", [
     "2018/DB3E89ED-5FDF-48FB-9618-AB2E88F37ED8_1_201_a.jpg",
     "2018/DSC07306.jpg",
     "2018/DSC07503.jpg",
@@ -65,8 +68,7 @@ main(class="gallery container")
     "2018/IMG_3378.jpg"
   ])
 
-  h2 SOAR 2017
-  +galleryCollapsible("Photos", "gallery-2017", [
+  +galleryCollapsible("SOAR 2017", "gallery-2017", [
     "2017/1.jpg",
     "2017/2.jpg",
     "2017/3.jpg",

@@ -1,5 +1,9 @@
 main(class=`${page.toLowerCase()} container`)
-  h1 Sponsor Us!
+  include mixins/intro.pug
+  +intro({
+    title: "Our Sponsors",
+    size: 2
+  })
 
 .container
   include mixins/prefooter.pug

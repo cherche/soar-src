@@ -1,7 +1,10 @@
 main(class="team container")
-  .team-intro
-    h1(class="team text-center display-2") Meet the team
-    p.lead Meet the faces behind the organization, and don't hesitate to reach out to any of us!
+  include mixins/intro.pug
+  +intro({
+    title: "Meet the Team",
+    lead: "Meet the faces behind the organization, and don't hesitate to reach out to any of us!",
+    size: 2
+  })
 
   include mixins/team.pug
   +portfolio("chair", [
