@@ -87,15 +87,15 @@ $(document).ready(function () {
     e.preventDefault()
     goToPrevStory()
     // The idea is that we DO want the autoscroll to resume,
-    // but not for a while. So we'll wait 20s before we get back to it.
-    resetTimeout(20000)
+    // but not for a while. So we'll wait 30s before we get back to it.
+    resetTimeout(30000)
     return false
   })
 
   $next.on('click', (e) => {
     e.preventDefault()
     goToNextStory()
-    resetTimeout(20000)
+    resetTimeout(30000)
     return false
   })
 })
