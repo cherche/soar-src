@@ -23,7 +23,9 @@ main.container {
 }
 
 .prefooter {
-  margin: 3em 0 2em;
+  /* Why so much bottom margin? There's some weird problem with the .scroller
+  which cuts off the prefooter on mobile! "Temporary", super lazy fix. */
+  margin: 3em 0 8em;
 }
 
 /* The photos are just way too big, so this limits their size a bit */
