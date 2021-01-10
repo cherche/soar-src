@@ -83,7 +83,6 @@ $(document).ready(function () {
   }
 
   // And here we go: our main controls
-
   $prev.on('click', (e) => {
     e.preventDefault()
     goToPrevStory()
@@ -98,10 +97,5 @@ $(document).ready(function () {
     goToNextStory()
     resetTimeout(20000)
     return false
-  })
-
-  // Also, we would like to disable the controls if someone interacts at all
-  $stories.on('click', (e) => {
-    resetTimeout(20000)
   })
 })
