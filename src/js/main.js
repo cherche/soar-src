@@ -51,41 +51,38 @@ $(document).ready(function () {
     return false
   })
 
-  let isNavCollapsed = true
   const $navToggler = $mainNav.find('.navbar-toggler')
 
-  $scroller.on('scroll', function () {
-    // If the nav is expanded, scroll is irrelevant
-    // It is REALLY important that an expanded nav is always active
-    if (!isNavCollapsed) return
+  // Okay, this short flowchart should clarify the logic:
+  // SCROLLED DOWN?
+  // y -> [opaque nav]
+  // n -> MOBILE MENU EXPANDED?
+  //      y -> [opaque nav]
+  //      n -> [transparent nav]
 
-    if ($scroller.scrollTop() > 30) {
+  let isScrolledDown = $scroller.scrollTop() > 30
+  let isNavCollapsed = $navToggler.hasClass('collapsed')
+
+  // This function makes it pretty reusable. Efficient? Optimized? Probably not
+  function setNavOpacity () {
+    if (isScrolledDown || !isNavCollapsed) {
       $mainNav.addClass('active')
     } else {
       $mainNav.removeClass('active')
     }
+  }
+
+  $scroller.on('scroll', function () {
+    isScrolledDown = $scroller.scrollTop() > 30
+    setNavOpacity()
   })
 
   $(window).on('click', function () {
     isNavCollapsed = $navToggler.hasClass('collapsed')
-
-    // Similarly, if we have scrolled down the page at all,
-    // we must ensure that the nav is active even if the nav is collapsed
-    if (isNavCollapsed && $(window).scrollTop() <= 30) {
-      $mainNav.removeClass('active')
-    } else {
-      $mainNav.addClass('active')
-    }
-    // Without tests like those, there would be issues . . .
-    // - scrolling with an expanded nav
-    // - collapsing a nav while scrolled down
+    setNavOpacity()
   })
 
-  // And, of course, we should also check on page load
+  // And, of course, we should also initialize state on page load
   // in case someone loads a fragment (e.g., #learn-more)
-  if ($scroller.scrollTop() > 30) {
-    $mainNav.addClass('active')
-  } else {
-    $mainNav.removeClass('active')
-  }
+  setNavOpacity()
 })
