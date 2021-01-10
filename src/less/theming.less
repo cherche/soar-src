@@ -1,9 +1,44 @@
 @import './themes/purple.less';
 
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Condensed&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.slideshow-container {
+  h1 {
+    font-weight: 400;
+  }
+}
+
+/* Not fonts (colours) */
 body,
 .card {
   color: @text-color;
   background-color: @main-bg-color;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body {
+  background: @main-bg;
+  background-size: cover;
+
+  /*&::before {
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #171A3DDD;
+    position: fixed;
+    z-index: -100;
+  }*/
 }
 
 .card,
