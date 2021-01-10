@@ -1,3 +1,24 @@
+// Huh?! What is this? I'm an amateur and I have no clue what this is!
+// Well, when we have a scroll listener, notice that it's activating
+// basically CONSTANTLY. Like, normally 30+ events triggered per second.
+// This function limits it to maybe like 5 times a second
+function throttle(fn, delay) {
+  let timer = null
+
+  return () => {
+    const context = this
+    const args = arguments
+
+    if (timer) return
+
+    fn.apply(context, args)
+
+    timer = setTimeout(() => {
+      timer = null
+    }, delay)
+  }
+}
+
 $(document).ready(function () {
   const $mainNav = $('.main-nav')
 
@@ -71,10 +92,10 @@ $(document).ready(function () {
     }
   }
 
-  $(window).on('scroll', function () {
+  $(window).on('scroll', throttle(function () {
     isScrolledDown = $(window).scrollTop() > 30
     setNavOpacity()
-  })
+  }, 200))
 
   $(window).on('click', function () {
     isNavCollapsed = $navToggler.hasClass('collapsed')
