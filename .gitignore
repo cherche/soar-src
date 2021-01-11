@@ -25,7 +25,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-css
+# Directories which are destinations for gulp dev and gulp build
 dev/*
 build/*
+# ... but we do want to track the CNAME
+# Though, perhaps it should be moved to assets/
 !build/CNAME
