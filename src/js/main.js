@@ -95,7 +95,7 @@ $(document).ready(function () {
   $(window).on('scroll', throttle(function () {
     isScrolledDown = $(window).scrollTop() > 30
     setNavOpacity()
-  }, 200))
+  }, 1000/60))
 
   $(window).on('click', function () {
     isNavCollapsed = $navToggler.hasClass('collapsed')
