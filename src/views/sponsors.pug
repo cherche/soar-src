@@ -5,6 +5,60 @@ main(class=`${page.toLowerCase()} container`)
     size: 2
   })
 
-.container
+.container(class="sponsors")
+  div(class="jumbotron pt-5 pb-3")
+    h2.display-6 Interested in partnership?
+    p Check out the document below to find out how you can benefit from a SOAR partnership!
+    p.lead
+      a(class="btn btn-primary btn-lg" href="pdf/soar-2021-sponsorship.pdf") Download Sponsorship Package [PDF]
+      object(class="embedded-pdf mt-1" data="pdf/soar-2021-sponsorship.pdf" type="application/pdf" width="100%" height="100%")
+
+  h1(class="text-center") Our Past Sponsors
+  p.lead(class="text-center") The following organizations have supported SOAR's prior conferences:
+  
+  -
+    var sponsors = [
+      {
+        name: 'City of Brampton',
+        site: 'https://brampton.ca',
+        img: 'brampton.jpg'
+      },
+      {
+        name: 'Brampton Transit',
+        site: 'https://www.brampton.ca/en/residents/transit/Pages/Home.aspx',
+        img: 'brampton-transit.png'
+      },
+      {
+        name: 'University of Waterloo',
+        site: 'https://uwaterloo.ca',
+        img: 'uwaterloo.png'
+      },
+      {
+        name: 'Seneca College',
+        site: 'https://www.senecacollege.ca/home.html',
+        img: 'seneca.png'
+      },
+      {
+        name: 'Sparkling Ice',
+        site: 'https://www.sparklingice.ca',
+        img: 'sparkling-ice.png'
+      },
+      {
+        name: 'Krispy Kreme',
+        site: 'https://krispykreme.ca',
+        img: 'krispy-kreme.png'
+      },
+      {
+        name: 'Crestcom',
+        site: 'https://crestcom.com/ca/',
+        img: 'crestcom.png'
+      }
+    ]
+  .row(class="sponsor-grid text-center")
+    each sponsor in sponsors
+      .col(class="col-sm-6 col-md-4 col-lg-3")
+        .card
+          a(href!=sponsor.site): img(src=`./img/sponsors/${sponsor.img}`)
+
   include mixins/prefooter.pug
   +prefooter(page)
