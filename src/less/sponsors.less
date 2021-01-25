@@ -1,3 +1,9 @@
+/* Bad solution, but "if it works it works."
+There's some weird margin issue with the sponsors grid that causes overflow. */
+body {
+  overflow-x: hidden;
+}
+
 .sponsors {
   .embedded-pdf {
     height: 500px;
@@ -8,13 +14,21 @@
     justify-content: center;
     align-items: center;
 
-    .card {
-      background-color: white;
-      display: block;
+    div {
+      /*background-colo;r: white;*/
+      background: none;
+      border: none;
     }
     img {
       width: 200px;
       height: auto;
+      border: 0;
     }
   }
+}
+
+.container-fluid.sponsors {
+  background-color: rgba(140, 133, 139, 0.7);
+  color: black;
+  padding: 2rem 0;
 }
