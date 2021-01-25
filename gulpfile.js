@@ -37,7 +37,7 @@ gulp.task('lib-dev', function () {
 gulp.task('assets-copy-dev', function () {
   return gulp.src([
     'assets/**/*',
-    '!assets.img/thumbnail/**/*.jpg'
+    '!assets.img/thumbnail/**/*.jpg',
   ])
     .pipe(gulp.dest('dev/'))
 })
@@ -69,9 +69,20 @@ gulp.task('thumbnails-dev', function () {
     .pipe(gulp.dest('dev/img/thumbnail/'))
 })
 
+gulp.task('logo-dev', function () {
+  return gulp.src([
+      'assets/img/logo*.png'
+    ])
+    .pipe(resizer({
+      format: 'png',
+      width: 50
+    }))
+    .pipe(gulp.dest('dev/img/logo/'))
+})
+
 gulp.task('assets-dev', gulp.series(
   'assets-copy-dev',
-  gulp.parallel('thumbnails-dev', 'md-dev')
+  gulp.parallel('thumbnails-dev', 'md-dev', 'logo-dev')
 ))
 
 // Continuous gulp task to make development easier
@@ -162,6 +173,17 @@ gulp.task('thumbnails-build', function () {
     .pipe(gulp.dest('build/img/thumbnail/'))
 })
 
+gulp.task('logo-build', function () {
+  return gulp.src([
+      'assets/img/logo*.png'
+    ])
+    .pipe(resizer({
+      format: 'png',
+      width: 50
+    }))
+    .pipe(gulp.dest('build/img/logo/'))
+})
+
 gulp.task('dev-ish', gulp.parallel(
   'views-dev',
   'styles-dev',
@@ -183,5 +205,5 @@ gulp.task('build-ish', gulp.parallel(
 
 gulp.task('build', gulp.parallel(
   'build-ish',
-  gulp.series('assets-build', gulp.parallel('thumbnails-build', 'md-build'))
+  gulp.series('assets-build', gulp.parallel('thumbnails-build', 'md-build', 'logo-build'))
 ))
