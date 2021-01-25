@@ -74,14 +74,14 @@ footer {
 }
 
 /* The photos are just way too big, so this limits their size a bit */
-.slideshow-container .carousel {
+.banner-container .carousel {
   height: 25rem;
   overflow: hidden;
 }
 
 /* For contrast reasons, this is a translucent overlay
 (but the exact colour is defined elsewhere in theming.less) */
-.slideshow-container .carousel .carousel-item::after {
+.banner-container .carousel .carousel-item::after {
   content: '';
   display: block;
   position: absolute;
@@ -96,7 +96,7 @@ footer {
 /* Hopefully you remember this paradigm.
 Setting position: relative is just to allow us
 to use position: absolute with the children */
-.slideshow-container {
+.banner-container {
   position: relative;
 }
 
@@ -242,7 +242,7 @@ Truly bizarre. Guess we'll never know.
 }
 @media screen and (max-width: 575.99px) {
   /* De-clutter the slideshow a bit on mobile */
-  .slideshow-container {
+  .banner-container {
     height: 18rem;
     .carousel, .carousel-inner, .carousel-item {
       height: 18rem;
@@ -254,7 +254,7 @@ Truly bizarre. Guess we'll never know.
     font-size: 3rem;
   }
 
-  .slideshow-container .lead {
+  .banner-container .lead {
     font-size: 1rem;
   }
 
