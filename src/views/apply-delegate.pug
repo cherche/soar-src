@@ -1,0 +1,47 @@
+main(class=`${page.toLowerCase()} container`)
+  include mixins/intro.pug
+  +intro({
+    title: "Delegates",
+    lead: "How to join the lifeblood of SOAR: Our delegates",
+    size: 2
+  })
+
+  .row
+    .col-12: .card
+      .card-body
+        h5.card-title Step 1: Fill out your applicant information form (AIF).
+        p.card-text Give us some basic infomation about you (name, age, gender, school, etc.).
+        div(class="tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="No longer available")
+          a(href="https://docs.google.com/forms/d/e/1FAIpQLSeElfjU7tvaTLXZZXua9KkLATM0RJwgz2ZHhOZbioc6V1cRsg/viewform" target="_blank" class="btn btn-primary disabled") Submit my AIF
+    .col-12: .card
+      .card-body
+        h5.card-title Step 2: Answer our questions in your written application.
+        p.card-text Respond to the <a href="pdf/soar-2021-ld.pdf" target="_blank" >LD application questions</a> in a separate document. Please <strong>DO NOT</strong> include any personally identifying information (name, age, gender, school, etc.) in your responses. Failure to do so will disqualify your application. Once you're ready, go to the Google Form below to submit your application (PDF only please):
+        div
+          a(href="pdf/soar-2021-ld.pdf" target="_blank" class="btn btn-secondary") See LD Questions (PDF)
+          div(class="tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="No longer available")
+            a(href="https://docs.google.com/forms/d/e/1FAIpQLSey7FiI-ZJPQw5DVvtAN1V9hiVzyCEI3i1fTt5NVjOcJ9e2vw/viewform" target="_blank" class="btn btn-primary disabled") Submit my Application
+    .col-12: .card
+      .card-body
+        h5.card-title Step 3: Show us what you've got in your interview!
+        p.card-text Submitted your written application? You're done for now—take a breather. We will review all applications and email successful candidates their interview timing. 
+        
+div.story-container(class="my-4 py-4")
+  h1(class="text-center mb-2") LD Stories
+  include mixins/stories.pug
+  +stories([
+    {
+      name: "Aayushi Jha",
+      role: "Leadership Developer 2019",
+      message: "[My delegates were] initially timid but by the end of the conference they were all more confident and vibrant. Through my experience, although I was able to impart my wisdom to my delegates, they had taught me a lot as well. During team activities my delegates were inspiring to watch as they took the time to learn more about each other and their strengths before conducting an activity. [&hellip;] I was grateful to be able to be in a position to make an impact on my delegates but I was also [grateful] to learn more about myself and learn from those around me."
+    },
+    {
+      name: "Nicole Velev",
+      role: "Leadership Developer 2019",
+      message: "Throughout [SOAR], I witnessed a transformation occur within each of my Delegates. I watched their smiles begin to brim with confidence, and their eyes light up with determination. I had not only been able to facilitate personal growth, but with that facilitate the development of future leaders within the community. Seeing them emerge with the hope, courage, and resilience needed to stand in the face of high school was one of the most rewarding experiences of all. Knowing that I had ignited the spark which would enhance their confidence, drive, and inner leadership skills, was enough to have fulfilled my goal: [to help middle schoolers once like me]."
+    }
+  ], 10000)
+
+.container
+  include mixins/prefooter.pug
+  +prefooter(page)
