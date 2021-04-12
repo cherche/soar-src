@@ -2,13 +2,16 @@ main(class=`${page.toLowerCase()} container`)
   .row
     .col-lg-8.mx-auto
       .card: .card-body
-        h5.card-title Leadership Developers
-        p.card-text LD applications are <strong>now closed for SOAR 2021</strong>. Successful applicants have already been contacted. Thank you to everyone who applied—and to returning high school students: keep an eye out for next year's SOAR Conference!
-        div(class="tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="No longer available")
-          a(href="apply-ld.html" class="btn btn-primary disabled") Apply to be an LD
+        h5.card-title Delegates
+        p.card-text Want to be a delegate? <strong>Grade 7 and 8 students in the Peel Region</strong> are welcome to join SOAR as Delegates. Applications are not available right now, but keep an eye out! Applications will release in April (soon!).
+        div(class="tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="Not available yet")
+          a(href="#" class="btn btn-primary disabled") Apply to be a Delegate
     .col-sm
-      div(class="card border-info mb-3"): div(class="card-body")
-        p(class="card-text") Want to be a delegate? Delegate applications are not available right now, but keep an eye out! Applications will release in April.
+      .card: .card-body
+        h5.card-title Leadership Developers
+        p.card-text LD applications are <strong>now closed for SOAR 2021</strong>. To returning high school students: keep an eye out for next year's SOAR Conference!
+        div(class="tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="Now closed")
+          a(href="apply-ld.html" class="btn btn-secondary") Apply to be an LD
 
 .container
   include mixins/prefooter.pug
