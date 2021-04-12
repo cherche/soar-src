@@ -7,19 +7,22 @@ main(class=`${page.toLowerCase()} container`)
   })
 
   .row
+    .col-12: .card.border-info
+      .card-body: .card-text LD applications are <strong>now closed for SOAR 2021</strong>. Successful applicants have already been contacted. Thank you to everyone who applied—and to returning high school students: keep an eye out for next year's SOAR Conference!
     .col-12: .card
       .card-body
         h5.card-title Step 1: Fill out your applicant information form (AIF).
         p.card-text Give us some basic infomation about you (name, age, gender, school, etc.).
-        div
-          a(href="https://docs.google.com/forms/d/e/1FAIpQLSeElfjU7tvaTLXZZXua9KkLATM0RJwgz2ZHhOZbioc6V1cRsg/viewform" target="_blank" class="btn btn-primary") Submit my AIF
+        div(class="tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="No longer available")
+          a(href="https://docs.google.com/forms/d/e/1FAIpQLSeElfjU7tvaTLXZZXua9KkLATM0RJwgz2ZHhOZbioc6V1cRsg/viewform" target="_blank" class="btn btn-primary disabled") Submit my AIF          
     .col-12: .card
       .card-body
         h5.card-title Step 2: Answer our questions in your written application.
         p.card-text Respond to the <a href="pdf/soar-2021-ld.pdf" target="_blank" >LD application questions</a> in a separate document. Please <strong>DO NOT</strong> include any personally identifying information (name, age, gender, school, etc.) in your responses. Failure to do so will disqualify your application. Once you're ready, go to the Google Form below to submit your application (PDF only please):
         div
           a(href="pdf/soar-2021-ld.pdf" target="_blank" class="btn btn-secondary") See LD Questions (PDF)
-          a(href="https://docs.google.com/forms/d/e/1FAIpQLSey7FiI-ZJPQw5DVvtAN1V9hiVzyCEI3i1fTt5NVjOcJ9e2vw/viewform" target="_blank" class="btn btn-primary") Submit my Application
+          div(class="tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="No longer available")
+            a(href="https://docs.google.com/forms/d/e/1FAIpQLSey7FiI-ZJPQw5DVvtAN1V9hiVzyCEI3i1fTt5NVjOcJ9e2vw/viewform" target="_blank" class="btn btn-primary disabled") Submit my Application
     .col-12: .card
       .card-body
         h5.card-title Step 3: Show us what you've got in your interview!
