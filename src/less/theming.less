@@ -21,7 +21,6 @@ h1, h2, h3, h4, h5, h6 {
 body,
 .card {
   color: @text-color;
-  background-color: @main-bg-color;
 }
 
 body {
@@ -37,12 +36,19 @@ body {
   }
 }
 
+.card {
+  background-color: @card-bg-color;
+}
+
+.card-header {
+  background-color: @card-header-bg-color !important;
+}
+
 .card,
 .card-header {
   border-color: @border-color;
 }
 
-.card-header,
 .jumbotron {
   background-color: @fill-bg-color;
 }
