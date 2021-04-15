@@ -2,32 +2,29 @@ main(class=`${page.toLowerCase()} container`)
   include mixins/intro.pug
   +intro({
     title: "Delegates",
-    lead: "How to join the lifeblood of SOAR: Our delegates",
+    lead: "Experience the SOAR Conference up close. Unforgettable. Unregrettable.",
     size: 2
   })
 
   .row
     .col-12: .card
       .card-body
-        h5.card-title Step 1: Fill out your applicant information form (AIF).
-        p.card-text Give us some basic infomation about you (name, age, gender, school, etc.).
+        h5.card-title Step 1: Fill out our written application.
+        p.card-text Applications are open to all <strong>Grade 7 and 8 students in the Peel Region</strong> with a submission deadline of <strong>Monday, April 26th, 2021 @ 11:59 PM</strong>. There are four parts to this application:
+          ol
+            li: p <strong>General Information About You.</strong> Give us your name, school, student number, etc.
+            li: p <strong>Questionnaire.</strong>
+            li: p <strong>Mailing Information.</strong> We will be providing some goodies to all attendees at this year's conference! Ensure that this is your <strong>mailing</strong> address, which may or may not be the same as your home address.
+            li: p <strong>Declaration Upload.</strong> Sign, scan, and upload a declaration form comprising of an agreement to SOAR's rules regarding appropriate conference behaviour and media consent.
         div(class="tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="No longer available")
-          a(href="https://docs.google.com/forms/d/e/1FAIpQLSeElfjU7tvaTLXZZXua9KkLATM0RJwgz2ZHhOZbioc6V1cRsg/viewform" target="_blank" class="btn btn-primary disabled") Submit my AIF
+          a(href="https://docs.google.com/forms/d/e/1FAIpQLSc44CsSblcJXzKEv2WJtbgVFtvHhwTTpfzpGEm-4wbz0QgNAQ/viewform" target="_blank" class="btn btn-primary") Apply
     .col-12: .card
       .card-body
-        h5.card-title Step 2: Answer our questions in your written application.
-        p.card-text Respond to the <a href="pdf/soar-2021-ld.pdf" target="_blank" >LD application questions</a> in a separate document. Please <strong>DO NOT</strong> include any personally identifying information (name, age, gender, school, etc.) in your responses. Failure to do so will disqualify your application. Once you're ready, go to the Google Form below to submit your application (PDF only please):
-        div
-          a(href="pdf/soar-2021-ld.pdf" target="_blank" class="btn btn-secondary") See LD Questions (PDF)
-          div(class="tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="No longer available")
-            a(href="https://docs.google.com/forms/d/e/1FAIpQLSey7FiI-ZJPQw5DVvtAN1V9hiVzyCEI3i1fTt5NVjOcJ9e2vw/viewform" target="_blank" class="btn btn-primary disabled") Submit my Application
-    .col-12: .card
-      .card-body
-        h5.card-title Step 3: Show us what you've got in your interview!
-        p.card-text Submitted your written application? You're done for now—take a breather. We will review all applications and email successful candidates their interview timing. 
+        h5.card-title Step 2: Wait!
+        p.card-text Just wait!
         
 div.story-container(class="my-4 py-4")
-  h1(class="text-center mb-2") LD Stories
+  h1(class="text-center mb-2") Delegate Stories
   include mixins/stories.pug
   +stories([
     {
