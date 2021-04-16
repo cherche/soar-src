@@ -19,25 +19,45 @@ main(class=`${page.toLowerCase()} container`)
         div
           a(href="https://drive.google.com/file/d/1h20f3Wxlza3C3_wReKqhRYcjp7OY9-S1/view" target="_blank" class="btn btn-secondary") Get Declaration Form [PDF]
           a(href="https://docs.google.com/forms/d/e/1FAIpQLSc44CsSblcJXzKEv2WJtbgVFtvHhwTTpfzpGEm-4wbz0QgNAQ/viewform" target="_blank" class="btn btn-primary") Apply
-        p.card-text <b>Note:</b> If you have issues accessing the Declaration Form, please make sure you are <strong>NOT</strong> signed into your PDSB Google Account. Either sign out or open the link in a "Private Browsing" window. The PDSB has set restrictions that may prevent you from viewing certain Google Drive files.
+        p.card-text <b>Note:</b> If you have issues accessing the Declaration Form or the Application, please ensure that you are <strong>NOT</strong> signed into your PDSB Google Account. Either sign out or open the link in a "Private Browsing" window. The PDSB has set restrictions that may prevent you from viewing certain Google Drive files.
     .col-12: .card
       .card-header Step 2: Wait!
       .card-body
-        p.card-text Just wait! All applicants will be emailed their application results via their PDSB Gmail inboxes (e.g., 627939@pdsb.net) no later than May 15. If you have have not received a response by then, email us at <a href="mailto:soar.chairs@gmail.com">soar.chairs@gmail.com</a>.
+        p.card-text Just wait! All applicants will be emailed their application results via their PDSB Gmail inboxes (e.g., 627939@pdsb.net) no later than May 15. If you have not received a response by then, email us at <a href="mailto:soar.chairs@gmail.com">soar.chairs@gmail.com</a>.
         
 div.story-container(class="my-4 py-4")
   h1(class="text-center mb-2") Delegate Stories
   include mixins/stories.pug
   +stories([
     {
-      name: "Aayushi Jha",
-      role: "Leadership Developer 2019",
-      message: "[My delegates were] initially timid but by the end of the conference they were all more confident and vibrant. Through my experience, although I was able to impart my wisdom to my delegates, they had taught me a lot as well. During team activities my delegates were inspiring to watch as they took the time to learn more about each other and their strengths before conducting an activity. [&hellip;] I was grateful to be able to be in a position to make an impact on my delegates but I was also [grateful] to learn more about myself and learn from those around me."
+      name: "Huzaifa Saeed",
+      role: "Delegate 2017",
+      message: "As a timid kid, the idea of spending an entire day with a group of strangers was nauseating but the SOAR experience was like a roller-coaster. The initial foot forward is scary because [you're] stepping into the unknown but by the end, you never want to get off. [&hellip;] Over the years, I’ve participated in [other] conferences as a delegate, volunteer and exec but none of them match the enjoyment of SOAR. From pillow forts to roast-offs, the day was filled with memorable moments. SOAR has given me memories that I will forever cherish and more importantly, it helped me to grow as a person by stepping out of my comfort zone, into the unknown."
     },
     {
-      name: "Nicole Velev",
-      role: "Leadership Developer 2019",
-      message: "Throughout [SOAR], I witnessed a transformation occur within each of my Delegates. I watched their smiles begin to brim with confidence, and their eyes light up with determination. I had not only been able to facilitate personal growth, but with that facilitate the development of future leaders within the community. Seeing them emerge with the hope, courage, and resilience needed to stand in the face of high school was one of the most rewarding experiences of all. Knowing that I had ignited the spark which would enhance their confidence, drive, and inner leadership skills, was enough to have fulfilled my goal: [to help middle schoolers once like me]."
+      name: "Tanya Puri",
+      role: "Delegate 2018",
+      message: "SOAR 2018 was definitely an unforgettable conference for me because it’s where I met my best friend :)"
+    },
+    {
+      name: "Raj Bhatti",
+      role: "Delegate 2019",
+      message: "As a delegate that went to SOAR 2019, I had an amazing time! The activities were a lot of fun, and competitive at the same time. And through all these fun activities, I bonded with other delegates, and made a lot of new friends that I keep in touch with to this day. I recommend SOAR to any Grade 7 and Grade 8 student that wants to have a day of just fun, activities and wants to make more friends :)"
+    },
+    {
+      name: "Vyomesh Iyengar",
+      role: "Former Chair 2020",
+      message: "[One] of the most incredible, transformative experiences of my life. [As a 2015 delegate, executive member, and finally Chair] SOAR taught me about leadership through action, growing through my disappointments, and working with those around me. Through SOAR I met some of my closest friends to this day, [and] had some of my most memorable experiences. [&hellip;] While under the impression that I was just having fun, I subconsciously learnt how to develop my thought process and how to work with others. [&hellip;] I would encourage everyone to SOAR into their future!"
+    },
+    {
+      name: "Vaarij Betala",
+      role: "Delegate 2018",
+      message: "As soon as I got there, the volunteers were very eager to help, after that the volunteers were engaging, keeping us engaged with songs and activities. During the mentorship I learned a lot. The LDs walked us through time management, organization and conflict de-escalation. They were always ready to answer any questions we might have. I can say from experience I have learned a lot about high school from SOAR."
+    },
+    {
+      name: "Aayushi Jha",
+      role: "Delegate 2017",
+      message: "I was a pretty shy and timid 8th grader [but my older] sister had gone [before] and told me it was an amazing experience. Although I was a bit hesitant to apply, I submitted my application. SOAR was beyond what I had expected. [&hellip;] I learnt that the same feelings I had towards going to high school were shared by my group mates. However, my LDs were amazing and were able to answer all of our questions and put our worries to ease. [&hellip;] I [recommend that everyone] partake in this conference as it allowed me to step outside of my comfort zone a little and connected me with amazing individuals who provided me with so much insight into life!"
     }
   ], 10000)
 
