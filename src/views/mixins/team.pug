@@ -43,9 +43,9 @@ mixin portfolioCard(role, member)
       h6.role= roleLong
       p.social
         if socials.github
-          a(href=`https://www.github.com/${socials.github}/`) <i class="bi bi-github"></i>
+          a(href=`https://www.github.com/${socials.github}/` target="_blank") <i class="bi bi-github"></i>
         if socials.instagram
-          a(href=`https://www.instagram.com/${socials.instagram}/`) <i class="bi bi-instagram"></i>
+          a(href=`https://www.instagram.com/${socials.instagram}/` target="_blank") <i class="bi bi-instagram"></i>
         if socials.email
           a(href=`mailto:${socials.email}`) <i class="bi bi-envelope"></i>
 
