@@ -37,7 +37,7 @@ gulp.task('lib-dev', function () {
 gulp.task('assets-copy-dev', function () {
   return gulp.src([
     'assets/**/*',
-    '!assets.img/thumbnail/**/*.jpg',
+    '!assets/img/thumbnail/**/*.jpg',
   ])
     .pipe(gulp.dest('dev/'))
 })
