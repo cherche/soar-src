@@ -1,6 +1,6 @@
-mixin intro({ title, lead, rawSize })
+mixin intro({ title, lead, rawSize, classes })
   - var size = rawSize || 4
-  .intro
+  .intro(class!= classes)
     h1(class=`text-center display-${size}`)= title
     if (lead)
       p(class="text-center lead")= lead
