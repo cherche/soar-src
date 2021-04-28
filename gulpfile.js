@@ -1,9 +1,25 @@
 const gulp = require('gulp')
 
+const browserSync = require('browser-sync')
 const gulpPug = require('gulp-pug')
 const gulpLess = require('gulp-less')
 const path = require('path')
 const resizer = require('gulp-images-resizer')
+
+gulp.task('preview', (done) => {
+  browserSync.init({
+    server: {
+      baseDir: './dev/'
+    },
+    port: 8000
+  })
+  done()
+})
+
+gulp.task('previewReload', (done) => {
+  browserSync.reload()
+  done()
+})
 
 gulp.task('views-dev', function () {
   return gulp.src('src/views/dev/*.pug')
@@ -86,11 +102,13 @@ gulp.task('assets-dev', gulp.series(
 ))
 
 // Continuous gulp task to make development easier
-gulp.task('dev-mode', function () {
-  gulp.watch('./src/views/**/*.pug', gulp.series('views-dev'))
-  gulp.watch('./src/less/**/*.less', gulp.series('styles-dev'))
-  gulp.watch('./src/js/**/*.js', gulp.series('scripts-dev'))
+gulp.task('watch', function () {
+  gulp.watch('./src/views/**/*.pug', gulp.series('views-dev', 'previewReload'))
+  gulp.watch('./src/less/**/*.less', gulp.series('styles-dev', 'previewReload'))
+  gulp.watch('./src/js/**/*.js', gulp.series('scripts-dev', 'previewReload'))
 })
+
+gulp.task('dev-mode', gulp.parallel('preview', 'watch'))
 
 gulp.task('default', gulp.series('dev-mode'))
 
